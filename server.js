@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser=require('body-parser');
 var exphbs = require('express-handlebars');
-var routes=require('./controllers/monarch_controller.js')
+var routes=require('./routes/api_routes');
 var db = require('./models');
 var PORT = process.env.PORT || 8080;
 var app = express();
