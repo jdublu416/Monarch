@@ -56,7 +56,7 @@ module.exports = function(sequelize, DataTypes) {
 //       onDelete: "cascade"
 //     });
 //   };
-//Author.belongsto(Posts);
+Author.belongsTo(Posts);
 
   return Author;
 };
