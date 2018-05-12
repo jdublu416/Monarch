@@ -1,20 +1,36 @@
 module.exports = function(sequelize, DataTypes) {
-    var post = sequelize.define("posts", {
-      id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        auto_increment: true,
-        primaryKey: true
-      },
-      post_body: {
-        type: DataTypes.TEXT,
-        allowNull: false
-      },
-      liked: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
+  var Posts = sequelize.define("posts", {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      auto_increment: true,
+      primaryKey: true
+    },
+    post_title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 100]
       }
-    });
-    return post;
-  };
-  
+    },
+    post_body: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    liked: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
+  });
+  // Posts.associate = function(models) {
+  //   Posts.belongsTo(models.Author, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
+  return Posts;
+};
