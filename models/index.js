@@ -33,4 +33,13 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+//associations
+db.posts.belongsTo(db.authors);
+db.authors.hasMany(db.posts);
+db.posts.belongsTo(db.subject);
+db.subject.hasMany(db.posts);
+db.comments.belongsTo(db.posts);
+db.posts.hasMany(db.comments);
+
+
 module.exports = db;

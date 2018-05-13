@@ -1,7 +1,5 @@
-var Posts = require("./post");
-
 module.exports = function(sequelize, DataTypes) {
-  var Author = sequelize.define("author", {
+  var Authors = sequelize.define("authors", {
     auth_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -12,18 +10,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [2,20],
-        is: ["^[a-z]+$",'i'],
-        notEmpty: true
+        len: [2, 20],
+        is: ["^[a-z]+$", "i"],
       }
     },
     auth_LN: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [2,30],
-        is: ["^[a-z]+$",'i'],
-        notEmpty: true
+        len: [2, 30],
+        is: ["^[a-z]+$", "i"],
       }
     },
     auth_user_name: {
@@ -31,15 +27,15 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [8],
-        notEmpty: true,
+        notEmpty: true
       }
     },
     auth_email: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isEmail: true, 
-        notEmpty: true,
+        isEmail: true,
+        notEmpty: true
       }
     },
     auth_password: {
@@ -48,15 +44,8 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notEmpty: true
       },
-
     }
   });
-//   Author.associate = function(models) {
-//     Author.hasMany(models.Post, {
-//       onDelete: "cascade"
-//     });
-//   };
-Author.belongsTo(Posts);
 
-  return Author;
+  return Authors;
 };
