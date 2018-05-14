@@ -1,0 +1,22 @@
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  nav{
+      margin: 0 0 5em 0;
+      font-family: 'Monoton'
+  }
+  #list {
+      max-width: 66%;
+
+  }
+
+main {
+    flex: 1 0 auto;
+  }
+
+#logo {
+    padding: 1px 10px 0px 5px;
+}
