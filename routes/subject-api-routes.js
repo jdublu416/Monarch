@@ -1,16 +1,24 @@
 var express = require('express');
 var db = require("../models");
 var app = express();
-var subject = db.subject;
+
 module.exports = function(app) {
+  app.get("/", function(req, res) {
+
+    db.subject.findAll({}).then(function(subject) {
+
+      res.render("index", {subject: subject});
+    });
+  });
+
     // GET route for getting all of the todos
-    app.get("/", function(req, res) {
+    app.get("/api/subjects", function(req, res) {
       // Write code here to retrieve all of the posts from the database and res.json them
       // back to the user
       
-      subject.findAll({}).then(function(subject) {
+      db.subject.findAll({}).then(function(subject) {
 
-        res.render("index", subject);
+        res.json(subject);
       });
     });
   };
