@@ -1,3 +1,6 @@
+
+var db = require("../models");
+
 module.exports = function(app) {
     // GET route for getting all of the todos
     app.get("/api/subject", function(req, res) {
