@@ -2,11 +2,21 @@ var express = require('express');
 var db = require("../models");
 var app = express();
 module.exports = function(app) {
+
+  app.get("/author", function(req, res) {
+
+    db.authors.findAll({}).then(function(author) {
+
+      res.render("index", {author: author});
+    });
+  });
+
   app.get("/api/authors", function(req, res) {
     db.authors.findAll({}).then(function(dbmonarch) {
       return res.json(dbmonarch);
     });
   });
+  
   app.delete("", function(req, res) {
     db.authors.destroy({
       where: {
