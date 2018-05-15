@@ -1,4 +1,13 @@
-{{data}}
+{{#each subject}}
+    <p>{{this.subjectId}}</p>
+{{/each}}
+{{#each posts}}
+  <p>{{this.subjectId}}</p>
+{{/each}}
+{{#each author}}
+
+    <p> {{this.auth_FN}} {{this.auth_LN}}</p>
+{{/each}}
   <header>
     <nav>
       <div class="nav-wrapper">
@@ -44,10 +53,11 @@
 
         <!-- <div class="container"> -->
         <!-- <h5>Current Topics:</h5> -->
+        {{#each subject}}
         <ul id="posts-section" class="collapsible">
           <li>
             <div class="collapsible-header">
-              <i class="material-icons">headset</i>music</div>
+              <i class="material-icons">headset</i>{{this.subj_title}}</div>
             <div class="collapsible-body">
               <ul class="collapsible">
                 <li>
@@ -61,6 +71,8 @@
                     <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (42)
                   </div>
                 </li>
+                </ul>
+                {{/each}}
                 <li>
                   <div class="collapsible-header">Changing Banjo Strings Underwater</div>
                   <div class="collapsible-body">
