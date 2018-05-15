@@ -22,4 +22,4 @@ veryImportant = cb => {
   });
 };
 
-const audio = new Audio("assets/sounds/secret.mp3");
+const audio = new Audio("sounds/secret.mp3");
