@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "port": 3307,
-    "password": "Pirahn437",
-    "database": "monarch_db",
+    "port": 3306,
+    "password": "rich2545",
+    "database": "MONARCH_DB",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
