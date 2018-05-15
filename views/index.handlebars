@@ -1,4 +1,5 @@
- <header>
+{{data}}
+  <header>
     <nav>
       <div class="nav-wrapper">
 
@@ -11,32 +12,258 @@
 
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
-            <a href="#">Area</a>
-          </li>
-          <li>
-            <a href="badges.html">for</a>
-          </li>
-          <li>
-            <a href="collapsible.html">Sign in</a>
-          </li>
-        </ul>
-      </div>
-      <div class="nav-content">
-        <ul class="tabs ">
-          <li class="tab">
-            <a href="#test1">Test 1</a>
-          </li>
-          <li class="tab">
-            <a class="active" href="#test2">Test 2</a>
-          </li>
-          <li class="tab disabled">
-            <a href="#test3">Disabled Tab</a>
-          </li>
-          <li class="tab">
-            <a href="#test4">Test 4</a>
-          </li>
-        </ul>
-      </div>
 
+            <button class="nav_button btn waves-effect waves-light modal-trigger blue accent-4" id="go_to_login" href="#login_modal"
+              name="login">Log In
+              <button class="nav_button btn waves-effect waves-light modal-trigger blue accent-4" id="go_to_register" href="#register_modal"
+                name="register">Register
+              </button>
+
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
+ <main>
+    <div class="row">
+      <section id="list" class="col s6">
+          <div class=" row">
+              <ul id="tabbys" class="tabs">
+                <li class="tab">
+                  <a href="#">New</a>
+                </li>
+                <li class="tab">
+                  <a href="#">Top</a>
+                </li>
+                <li class="tab">
+                  <a href="#">Rand</a>
+                </li>
+              </ul>
+            </div>
+        <div class="row">
+
+        <!-- <div class="container"> -->
+        <!-- <h5>Current Topics:</h5> -->
+        <ul id="posts-section" class="collapsible">
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">headset</i>music</div>
+            <div class="collapsible-body">
+              <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header">Oh man/div>
+                  <div class="collapsible-body">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ratione hic consequuntur modi! Molestias
+                      in tempora reiciendis necessitatibus ipsa suscipit corporis esse, voluptatem voluptatum ea.
+                    </span>
+                    <br>
+                    <br>
+                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (42)
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Changing Banjo Strings Underwater</div>
+                  <div class="collapsible-body">
+                    <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, ratione nisi ipsum non esse reprehenderit,
+                      distinctio laudantium repellendus, molestias inventore natus voluptatum eius sequi corrupti.</span>
+                    <br>
+                    <br>
+                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (16)
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Anyone ever heard of a little band called Green Day?</div>
+                  <div class="collapsible-body">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, reiciendis deserunt, officiis dignissimos
+                      totam eveniet nobis explicabo vitae sequi mollitia cupiditate, laboriosam iste labore sapiente.</span>
+                    <br>
+                    <br>
+                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (2)
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">videogame_asset</i>Gaming</div>
+            <div class="collapsible-body">
+              <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header">I keep dying in Zelda this game is trash</div>
+                  <div class="collapsible-body">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, quibusdam iste? Quam officiis architecto
+                      vitae vero explicabo ratione perferendis quod expedita. Autem repellendus sed quae.</span>
+                    <br>
+                    <br>
+                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (127)
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Fighting Games (General)</div>
+                  <div class="collapsible-body">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas assumenda obcaecati est error, quibusdam
+                      eveniet ipsum aperiam voluptatibus asperiores, incidunt adipisci officiis, dolorum magni! Maxime.</span>
+                    <br>
+                    <br>
+                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (61)
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Post Your Scrub Moments Here</div>
+                  <div class="collapsible-body">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cumque voluptatum nobis quas, beatae placeat
+                      consequuntur. Eum odio aliquam consequatur perspiciatis tempore ipsa dolorem alias.
+                    </span>
+                    <br>
+                    <br>
+                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (13)
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <!-- </div> -->
+
+        <!-- <ul class="collection">
+          <li class="collection-item">thingydoo l</li>
+          <li class="collection-item">thingydoo l</li>
+          <li class="collection-item">thingydoo l</li>
+          <li class="collection-item">thingydoo l</li>
+          <li class="collection-item">thingydoo l</li>
+          <li class="collection-item">thingydoo l</li>
+          <li class="collection-item">thingydoo l</li>
+          <li class="collection-item">thingydoo l</li>
+          <li class="collection-item">thingydoo l</li>
+
+        </ul> -->
+      </section>
+
+      <section id="topics" class="right col s4">
+        <div class="row">
+          <ul class="collection col s4">
+            <li class="collection-item">thingydoo r</li>
+
+          </ul>
+          <ul class="collection col s4">
+            <li class="collection-item">thingydoo r</li>
+
+          </ul>
+          <ul class="collection col s4">
+            <li class="collection-item">thingydoo r</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- Modal for logging in -->
+    <div id="login_modal" class="modal">
+      <div class="modal-content">
+        <form>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="username" id="user_name" type="text" class="validate">
+                <label for="user_name ">User Name</label>
+              </div>
+            </div>
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="********" id="user_password" type="password" class="validate">
+                <label for="user_password">Password</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="center col s12">
+              <button class="btn waves-effect waves-light blue accent-4" id="user_login_submit" type="submit " name="action ">Log In
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Modal for registering -->
+    <div id="register_modal" class="modal">
+      <div class="modal-content">
+        <form>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="username" id="new_user_name" type="text" class="validate">
+                <label for="user_name ">Desired user name:</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="********" id="new_user_password" type="password" class="validate">
+                <label for="user_password">Desired password:</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="jane.doe@example.com" id="new_user_email" type="email" class="validate">
+                <label for="user_email">Email:</label>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="center col s12">
+          <button class="btn waves-effect waves-light blue accent-4" id="user_register_submit" type="submit" name="action">Register
+          </button>
+        </div>
+      </div>
+      </form>
+    </div>
+    </div>
+
+
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Home</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Top</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Refresh</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Copyright a Dream Team Production
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript at end of body for optimized loading -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+  <!-- Import local materialize.js and app.js -->
+  <script type="text/javascript " src="js/materialize.min.js "></script>
+  <script type="text/javascript " src="js/app.js "></script>

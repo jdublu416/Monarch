@@ -14,13 +14,16 @@ app.use(bodyParser.json());
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
 
+
+ 
+
 require("./routes/post-api-routes.js")(app);
 require("./routes/author-api-routes.js")(app);
 require("./routes/subject-api-routes.js")(app);
 require("./routes/comments-api-routes.js")(app);
 //app.use(routes);
 
-db.sequelize.sync({force:true}).then(function(){
+db.sequelize.sync().then(function(){
     app.listen(PORT, function(){
         console.log("server listening on: https://localhost:"+PORT);
     });

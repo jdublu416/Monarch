@@ -1,6 +1,6 @@
-
+var express = require('express');
 var db = require("../models");
-
+var app = express();
 module.exports = function(app) {
   app.get("/api/authors", function(req, res) {
     db.authors.findAll({}).then(function(dbmonarch) {
