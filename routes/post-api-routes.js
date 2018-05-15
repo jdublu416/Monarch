@@ -1,4 +1,7 @@
-var db = require('../models');
+
+
+var db = require("../models");
+
 
 module.exports = function(app) {
   //get for getting all posts
