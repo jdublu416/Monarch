@@ -3,8 +3,10 @@ var bodyParser=require('body-parser');
 var exphbs = require('express-handlebars');
 //var routes=require('./routes');
 var db = require('./models');
-var PORT = process.env.PORT || 8080;
+var PORT = 8080;
 var app = express();
+
+process.env.PORT ||
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
