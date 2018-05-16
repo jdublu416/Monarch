@@ -2,7 +2,11 @@
 
 <p> {{this.auth_FN}} {{this.auth_LN}}</p>
 {{/each}}
+ {{#each subject}}
 
+<p> {{this.sbj_title}} {{this.subj_desc}}</p>
+{{/each}}
+{{author.auth_user_name}}
 <body>
   <header>
     <nav>
@@ -34,8 +38,8 @@
       <section id="list" class="col s12 m6">
           <div class=" row">
               <ul id="tabbys" class="tabs">
-                <li class="tab col s4">
-                  <a href="#">New</a>
+                <li  class="tab col s4">
+                  <a id="new-post-tab" class=" waves-effect waves-light modal-trigger blue accent-4" href="#new_post_modal">New Post</a>
                 </li>
                 <li class="tab col s4">
                   <a href="#">Top</a>
@@ -52,11 +56,11 @@
         <ul id="posts-section" class="collapsible col s12">
           <li>
             <div class="collapsible-header">
-              <i class="material-icons">headset</i>{{this.subj_title}}</div>
+              <i class="material-icons">headset</i>{{this.subj_desc}}</div>
             <div class="collapsible-body">
               <ul class="collapsible">
                 <li>
-                  <div class="collapsible-header">{{this.subj_desc}}</div>
+                  <div class="collapsible-header"></div>
                   <div class="collapsible-body">
                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ratione hic consequuntur modi! Molestias
                       in tempora reiciendis necessitatibus ipsa suscipit corporis esse, voluptatem voluptatum ea.
@@ -147,19 +151,12 @@
         </ul> -->
       </section>
 
-      <section id="topics" class="right col m4 hide-on-small-and-down">
+      <section id="topics" class="right">
         <div class="row">
-          <ul class="collection col s4">
-            <li class="collection-item">thingydoo r</li>
-
-          </ul>
-          <ul class="collection col s4">
-            <li class="collection-item">thingydoo r</li>
-
-          </ul>
-          <ul class="collection col s4">
-            <li class="collection-item">thingydoo r</li>
-          </ul>
+          <ul class="collection">
+            {{#each subject}}
+            <li class="collection-item">{{this.subj_title}}</li>
+            {{/each}}
         </div>
       </section>
     </div>
@@ -233,6 +230,34 @@
     </div>
     </div>
 
+{{!-- modal for posting --}}
+
+<div id="new_post_modal" class="modal">
+      <div class="modal-content">
+        <form>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="Title" id="new_post_title" type="text" class="validate">
+                <label for="new_post_title">Title</label>
+              </div>
+            </div>
+            <div class="container">
+              <div class="input-field col s6">
+                <textarea placeholder="Post" id="new_post_body" type="text" class="materialize-textarea validate"></textarea>
+                <label for="new_post_body">Post</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="center col s12">
+              <button class="btn waves-effect waves-light blue accent-4" id="new_post__submit" type="submit " name="action ">Post
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
 
   </main>
 

@@ -1,9 +1,9 @@
-var express = require('express');
+
 var db = require("../models");
-var app = express();
+
 
 module.exports = function(app) {
-  app.get("/", function(req, res) {
+  app.get("/subjects", function(req, res) {
 
     db.subject.findAll({}).then(function(subject) {
 
