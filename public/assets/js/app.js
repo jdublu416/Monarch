@@ -7,6 +7,14 @@ $(document).ready(() => {
   veryImportant(() => {
     audio.play();
   });
+  $(".collection-item").on("click", event => {
+    if ($(event.target).hasClass("active red accent-1")) {
+      $(".collection-item").removeClass("active red accent-1");
+    } else {
+      $(".collection-item").removeClass("active red accent-1");
+      $(event.target).toggleClass("active red accent-1");
+    }
+  });
 });
 
 veryImportant = cb => {
