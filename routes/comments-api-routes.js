@@ -2,20 +2,29 @@ var express = require('express');
 var db = require("../models");
 var app = express();
 module.exports = function(app) {
+
+  app.get("/comments", function(req, res) {
+
+    db.comments.findAll({}).then(function(comment) {
+
+      res.render("index", {comment: comment});
+    });
+  });
+
     // get for all posts
     app.get("/api/comments", function(req, res) {
       //GET to retrieve all of the comments  
       
-      db.Comments.findAll({}).then(function(dbmonarch) {
+      db.comments.findAll({}).then(function(dbmonarch) {
         return res.json(dbmonarch);
       });
     });
 //GET  for specific single comment
     app.get("/api/comments/:comm_id", function(req,res){
       db.Comments.findAll({
-        where:{
-          comm_id= req.params.comm_id,
-        }
+        // where:{
+        //   comm_id= req.params.comm_id,
+        // }
       }).then(function(dbmonarch){
         res.json(dbmonarch);
       });

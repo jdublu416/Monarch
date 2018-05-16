@@ -6,9 +6,16 @@ var db = require("../models");
 
 
 module.exports = function(app) {
+
+  app.get("/post", function(req, res) {
+    db.posts.findAll({}).then(function(post) {
+      res.render("index", {post: post});
+    });
+  });
+
   //get for getting all posts
   app.get("/api/posts", function(req, res) {
-    db.Posts.findAll({}).then(function(dbmonarch) {
+    db.posts.findAll({}).then(function(dbmonarch) {
       return res.json(dbmonarch);
     });
   });

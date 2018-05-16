@@ -7,20 +7,130 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Monarch</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Import local materialize.css -->
-    <link type="text/css" rel="stylesheet" href="../../public/assets/css/materialize.min.css" media="screen,projection" />
-    <!-- Import local style.css -->
-    <link type="text/css" rel="stylesheet" href="../../public/assets/css/stylecss" media="screen,projection" />
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link rel="stylesheet" href="../../public/assets/style.css">
-    <link rel="stylesheet" href="../../public/assets/css/style.css">
+
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            background-color: blueviolet;
+        }
+
+        nav {
+            margin: 0 0 5em 0;
+            font-family: "Monoton";
+        }
+
+        #list {
+            max-width: 66%;
+
+        }
+
+        #tabbys {
+            padding: 0;
+            margin: 0;
+            height: 33px;
+        }
+
+        .row {
+            padding: 0;
+            margin: 0;
+        }
+
+        #posts-section {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        #logo {
+            padding: 1px 10px 0px 5px;
+        }
+
+        h5 {
+            font-family: "Monoton";
+        }
+
+        .nav_button {
+            margin: 5px;
+        }
+
+
+
+        @media only screen and (max-width: 992px) {
+            body {
+                background-color: chartreuse;
+
+            }
+            #list {
+                max-width: 100%;
+
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: chocolate;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     {{{body}}}
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>$(document).ready(() => {
+            $(".collapsible").collapsible();
+            $(".modal").modal();
+            $(".dropdown-trigger").dropdown();
+            $("select").formSelect();
+            $("input#input_text, textarea#post_title").characterCounter();
+            veryImportant(() => {
+                audio.play();
+            });
+        });
+
+        veryImportant = cb => {
+            let input = "";
+            const key = "38384040373937396665";
+            document.addEventListener("keydown", e => {
+                input += "" + e.keyCode;
+                if (input === key) {
+                    return cb();
+                }
+                if (!key.indexOf(input)) return;
+                input = "" + e.keyCode;
+            });
+        };
+
+        const audio = new Audio("secret.mp3");
+        let user = {
+            userName: "",
+            userPassword: ""
+        }
+
+        $('#user_login_submit').on("click", function () {
+
+            user.userName = $("#user_name").val();
+            user.userPassword = $("#user_password").val();
+            alert("logged in as" + " " + user.userName + " ...not really only testing");
+        
+
+
+{{!-- for testing porpoises --}}
+        if(user.userName == "User" && user.userPassword == "Pass"){
+            $('#nav-mobile').addClass('hide');
+        }
+        })
+    </script>
 </body>
 
 </html>
