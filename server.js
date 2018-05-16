@@ -25,7 +25,6 @@ require("./routes/subject-api-routes.js")(app);
 require("./routes/comments-api-routes.js")(app);
 //app.use(routes);
 
-
 db.sequelize.sync({force: false}).then(function(){
 
     app.listen(PORT, function(){
