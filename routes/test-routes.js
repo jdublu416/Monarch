@@ -15,7 +15,10 @@ module.exports = function (app) {
             db.authors.findAll({}),
 
             db.posts.findAll({
-                where: {subj_id: db.subject.subj_id}
+                where: {subj_id: 1} //to be unhard coded
+            }),
+            db.comments.findAll({
+                where: {post_id: 1} //to be unhard coded
             }),
 
         ]).then(([subject, author, posts]) => {
@@ -23,7 +26,8 @@ module.exports = function (app) {
             res.render("index", {
                 subject: subject,
                 author: author,
-                posts: posts
+                posts: posts,
+                comments: comments
             });
         });
     });
