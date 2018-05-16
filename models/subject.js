@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
         subj_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            auto_increment: true,
+            autoIncrement: true,
             primaryKey: true  
         },
         subj_title:{
