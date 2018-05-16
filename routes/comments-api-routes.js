@@ -1,6 +1,6 @@
-var express = require('express');
+
 var db = require("../models");
-var app = express();
+
 module.exports = function(app) {
 
   app.get("/comments", function(req, res) {

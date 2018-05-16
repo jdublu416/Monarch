@@ -1,13 +1,12 @@
 
 
-
 var db = require("../models");
 
 
 
 module.exports = function(app) {
 
-  app.get("/post", function(req, res) {
+  app.get("/posts", function(req, res) {
     db.posts.findAll({}).then(function(post) {
       res.render("index", {post: post});
     });

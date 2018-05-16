@@ -1,9 +1,10 @@
 var express = require('express');
-var db = require("../models");
 var app = express();
+var db = require("../models");
+
 module.exports = function(app) {
 
-  app.get('/author', function(req, res) {
+  app.get('/authors', function(req, res) {
 
     db.authors.findAll({
       include: [{all: true}],

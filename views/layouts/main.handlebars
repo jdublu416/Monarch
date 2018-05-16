@@ -59,7 +59,9 @@
         .nav_button {
             margin: 5px;
         }
-
+        .collapsible-body {
+            padding: 10px 0;
+        }
 
 
         @media only screen and (max-width: 992px) {
@@ -96,6 +98,8 @@
             veryImportant(() => {
                 audio.play();
             });
+
+            M.textareaAutoResize($('#new_post_body'));
         });
 
         veryImportant = cb => {
