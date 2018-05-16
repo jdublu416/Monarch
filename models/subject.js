@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Subject = sequelize.define("subject", {
-        post_id: {
+        subj_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,

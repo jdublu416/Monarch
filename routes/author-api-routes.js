@@ -3,9 +3,12 @@ var db = require("../models");
 var app = express();
 module.exports = function(app) {
 
-  app.get("/author", function(req, res) {
+  app.get('/author', function(req, res) {
 
-    db.authors.findAll({}).then(function(author) {
+    db.authors.findAll({
+      include: [{all: true}],
+
+    }).then(function(author) {
 
       res.render("index", {author: author});
     });

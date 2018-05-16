@@ -3,7 +3,7 @@ var db = require("../models");
 var app = express();
 module.exports = function(app) {
 
-  app.get("/subject", function(req, res) {
+  app.get("/comments", function(req, res) {
 
     db.comments.findAll({}).then(function(comment) {
 

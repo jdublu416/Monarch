@@ -5,3 +5,6 @@ VALUES ("Vidya Games", "Pew Pew", CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()),("Mu
 ("Cooking", "Om Nom", CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 INSERT INTO posts (post_title, post_body, post_vote, subj_id, auth_id, createdAt, updatedAt)
 VALUES ("Games are for Weebs", "Losers, lolololol", 0, 1, 1, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+
+
+
