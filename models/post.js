@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      auto_increment: true,
+      autoIncrement: true,
       primaryKey: true
     },
     post_title: {

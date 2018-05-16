@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     auth_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      auto_increment: true,
+      autoIncrement: true,
       primaryKey: true
     },
     auth_FN: {
