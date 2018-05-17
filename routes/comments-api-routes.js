@@ -1,11 +1,21 @@
-var express = require('express');
+
 var db = require("../models");
-var app = express();
+
 module.exports = function(app) {
+
+  app.get("/comments", function(req, res) {
+
+    db.comments.findAll({}).then(function(comment) {
+
+      res.render("index", {comment: comment});
+    });
+  });
+
     // get for all posts
     app.get("/api/comments", function(req, res) {
       //GET to retrieve all of the comments  
       
+
       db.Comments.findAll({}).then(function(dbcomments) {
         return res.json(dbcomments);
       });
@@ -18,6 +28,7 @@ module.exports = function(app) {
         }
       }).then(function(dbcomments){
         res.json(dbcomments);
+
       });
     });
 // GET all comments for  a specific post
@@ -33,8 +44,10 @@ module.exports = function(app) {
       db.Comments.create({
         postsid: req.params.posts.id,
         comm_body: req.params.comm_body,
+
       }).then(function(dbcomments){
         res.json(dbcomments);
+
       });
     });
 //update for an existing post
@@ -43,8 +56,11 @@ module.exports = function(app) {
         where: {
           id: req.body.id
         }
+
       }).then(function(dbcomments){
         res.json(dbcomments);
+
+     
       });
     });
 //delete a comment
@@ -53,8 +69,10 @@ module.exports = function(app) {
         where: {
           id: req.params.id
         }
+
       }).then(function(dbcomments){
         res.json(dbcomments);
+
       });
     });
 
