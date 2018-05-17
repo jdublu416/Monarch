@@ -1,21 +1,16 @@
-
-
 var db = require("../models");
 
-
-
 module.exports = function(app) {
-
   app.get("/posts", function(req, res) {
     db.posts.findAll({}).then(function(post) {
-      res.render("index", {post: post});
+      res.render("index", { post: post });
     });
   });
 
   //get for getting all posts
   app.get("/api/posts", function(req, res) {
-    db.posts.findAll({}).then(function(dbmonarch) {
-      return res.json(dbmonarch);
+    db.posts.findAll({}).then(function(dbMonPost) {
+      return res.json(dbMonPost);
     });
   });
 
@@ -48,11 +43,9 @@ app.get("/api/posts/:post_id", function(req,res){
   }).then(function(dbmonarch){
     res.json(dbmonarch);
   });
-});
-
 
   // create new post
-  app.post("/api/posts", function(req, res){
+  app.post("/api/posts", function(req, res) {
     console.log(req.body);
     db.Posts.create({
       post_title: req.body.post_title,
@@ -65,7 +58,7 @@ app.get("/api/posts/:post_id", function(req,res){
   app.put("/api/posts", function(req,res){
     db.Posts.update(req.body,{
       where: {
-        post_id: req.body.post_id
+        post_id: req.body.posts.id
       }
     }).then(function(dbPost){
       res.json(dbmonarch);
@@ -73,28 +66,12 @@ app.get("/api/posts/:post_id", function(req,res){
   });
 
   app.delete("/api/posts/:id", function(req, res) {
-    db.Posts.destroy({
+    db.posts.destroy({
       where: {
-        post_id: req.params.post_id
+        post_id: req.params.posts.id
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 };

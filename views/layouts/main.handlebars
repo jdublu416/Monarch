@@ -92,8 +92,35 @@
             veryImportant(() => {
                 audio.play();
             });
-
+            /*$(".col-item-subject").on("click", event => {
+                console.log(event.target);
+                if ($(event.target).hasClass("active")) {
+                    console.log("neat");
+                } else {
+                    console.log("adding class");
+                    $(".col-item-subject").removeClass("active");
+                    $(event.target).toggleClass("active");
+                }
+            });*/
             M.textareaAutoResize($('#new_post_body'));
+            $("#new_post_form").on("submit", function (event) {
+                event.preventDefault();
+                const currentURL = window.location.origin;
+                const postData = {
+                    subj_id: 1,
+                    post_title: $("#new_post_title")
+                        .val()
+                        .trim(),
+                    post_body: $("#new_post_body")
+                        .val()
+                        .trim()
+                };
+                $.ajax({
+                    url: "/api/posts",
+                    method: "POST",
+                    data: postData
+                });
+            });
         });
 
         veryImportant = cb => {
@@ -115,11 +142,12 @@
             userPassword: ""
         }
 
-        $('#user_login_submit').on("click", function () {
+        /*$('#user_login_submit').on("click", function () {
 
             user.userName = $("#user_name").val();
             user.userPassword = $("#user_password").val();
             alert("logged in as" + " " + user.userName + " ...not really only testing");
+
 
             $.ajax("/api/authors", {
                 type: "POST",

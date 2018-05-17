@@ -1,5 +1,4 @@
-var express = require('express');
-var app = express();
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -16,21 +15,22 @@ module.exports = function(app) {
   });
 
   app.get("/api/authors", function(req, res) {
-    db.authors.findAll({}).then(function(dbmonarch) {
-      return res.json(dbmonarch);
+    db.authors.findAll({}).then(function(dbMonAuth) {
+      return res.json(dbMonAuth);
     });
   });
   
-  app.delete("", function(req, res) {
+  app.delete("/api/authors/:id", function(req, res) {
     db.authors.destroy({
       where: {
         id: req.params.id
       }
     })
-      .then(function(dbauthors) {
-        res.json(dbauthors);
+      .then(function(dbMonAuth) {
+        res.json(dbMonAuth);
       });
   });
+
 
   app.post("/api/authors", function(req, res) {
     db.authors.create(req.body,
@@ -39,54 +39,54 @@ module.exports = function(app) {
         userName: req.body.title,
         password: req.body.body,
       })
-      .then(function(dbauthors) {
-        res.json(dbauthors);
+      .then(function(dbMonAuth) {
+        res.json(dbMonAuth);
       });
   });
 };
 
-app.get("", function(req, res){
+app.get("/api/authors", function(req, res){
   db.authors.findAll({
     where: {
       category: req.params.category
     }
   })
-    .then(function(dbmonarch) {
-      res.json(dbmonarch);
+    .then(function(dbMonAuth) {
+      res.json(dbMonAuth);
     });
   });
 
-    app.delete("", function(req, res) {
+    app.delete("/api/authors", function(req, res) {
       db.authors.destroy({
         where: {
           id: req.params.id
         }
       })
-        .then(function(dbmonarch) {
-          res.json(dbmonarch);
+        .then(function(dbMonAuth) {
+          res.json(dbMonAuth);
         });
     });
   
-    app.put("", function(req, res) {
+    app.put("/api/authors", function(req, res) {
       db.authors.update(req.body,
         {
           where: {
             id: req.body.id
           }
         })
-        .then(function(dbmonarch) {
-          res.json(dbmonarch);
+        .then(function(dbMonAuth) {
+          res.json(dbMonAuth);
         });
     });
   
-  app.post("", function(req, res) {
+  app.post("/api/authors", function(req, res) {
     console.log(req.body);
     db.authors.create({
       title: req.body.title,
       body: req.body.body,
       category: req.body.category
     })
-      .then(function(dbmonarch) {
-        res.json(dbmonarch);
+      .then(function(dbMonAuth) {
+        res.json(dbMonAuth);
       });
   });

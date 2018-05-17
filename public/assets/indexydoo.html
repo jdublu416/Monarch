@@ -15,7 +15,7 @@
 <body>
   <header>
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper z-depth-5">
 
         <!-- <div class='right'>
         <a href="#" id="logo" class="left brand-logo"><img id="logo" src="buttfly.png" />Monarch</a>
@@ -24,7 +24,7 @@
           <img class="responsive-img" src="buttfly.png" /> Monarch </a>
 
 
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul id="nav-mobile" class="right hide-on-small-and-down">
           <li>
 
             <button class="nav_button btn waves-effect waves-light modal-trigger blue accent-4" id="go_to_login" href="#login_modal"
@@ -41,64 +41,49 @@
   <main>
     <div class="row">
       <section id="list" class="col s6">
-          <div class=" row">
-              <ul id="tabbys" class="tabs">
-                <li class="tab">
-                  <a href="#">New</a>
-                </li>
-                <li class="tab">
-                  <a href="#">Top</a>
-                </li>
-                <li class="tab">
-                  <a href="#">Rand</a>
-                </li>
-              </ul>
-            </div>
-        <div class="row">
-
         <!-- <div class="container"> -->
-        <!-- <h5>Current Topics:</h5> -->
-        <ul id="posts-section" class="collapsible">
-          <li>
+        <h5>Top Posts in Music:</h5>
+        <ul class="collapsible">
+          <!-- <li>
             <div class="collapsible-header">
               <i class="material-icons">headset</i>Music</div>
             <div class="collapsible-body">
-              <ul class="collapsible">
-                <li>
-                  <div class="collapsible-header">Flaming Lips... more like the Flaming Slips!!</div>
-                  <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ratione hic consequuntur modi! Molestias
-                      in tempora reiciendis necessitatibus ipsa suscipit corporis esse, voluptatem voluptatum ea.
-                    </span>
-                    <br>
-                    <br>
-                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (42)
-                  </div>
-                </li>
-                <li>
-                  <div class="collapsible-header">Changing Banjo Strings Underwater</div>
-                  <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, ratione nisi ipsum non esse reprehenderit,
-                      distinctio laudantium repellendus, molestias inventore natus voluptatum eius sequi corrupti.</span>
-                    <br>
-                    <br>
-                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (16)
-                  </div>
-                </li>
-                <li>
-                  <div class="collapsible-header">Anyone ever heard of a little band called Green Day?</div>
-                  <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, reiciendis deserunt, officiis dignissimos
-                      totam eveniet nobis explicabo vitae sequi mollitia cupiditate, laboriosam iste labore sapiente.</span>
-                    <br>
-                    <br>
-                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (2)
-                  </div>
-                </li>
-              </ul>
+              <ul class="collapsible">-->
+          <li>
+            <div class="collapsible-header">Flaming Lips... more like the Flaming Slips!!</div>
+            <div class="collapsible-body">
+              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ratione hic consequuntur modi! Molestias
+                in tempora reiciendis necessitatibus ipsa suscipit corporis esse, voluptatem voluptatum ea.
+              </span>
+              <br>
+              <br>
+              <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (42)
             </div>
           </li>
           <li>
+            <div class="collapsible-header">Changing Banjo Strings Underwater</div>
+            <div class="collapsible-body">
+              <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, ratione nisi ipsum non esse reprehenderit,
+                distinctio laudantium repellendus, molestias inventore natus voluptatum eius sequi corrupti.</span>
+              <br>
+              <br>
+              <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (16)
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">Anyone ever heard of a little band called Green Day?</div>
+            <div class="collapsible-body">
+              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, reiciendis deserunt, officiis dignissimos totam
+                eveniet nobis explicabo vitae sequi mollitia cupiditate, laboriosam iste labore sapiente.</span>
+              <br>
+              <br>
+              <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (2)
+            </div>
+          </li>
+          <!-- </ul> -->
+          <!-- </div>
+          </li> -->
+          <!-- <li>
             <div class="collapsible-header">
               <i class="material-icons">videogame_asset</i>Gaming</div>
             <div class="collapsible-body">
@@ -136,7 +121,7 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
         </ul>
         <!-- </div> -->
 
@@ -154,21 +139,20 @@
         </ul> -->
       </section>
 
-      <section id="topics" class="right col s4">
-        <div class="row">
-          <ul class="collection col s4">
-            <li class="collection-item">thingydoo r</li>
-
-          </ul>
-          <ul class="collection col s4">
-            <li class="collection-item">thingydoo r</li>
-
-          </ul>
-          <ul class="collection col s4">
-            <li class="collection-item">thingydoo r</li>
-          </ul>
+      <section id="topics" class="right col s3">
+        <div class="container">
+          <h5>Current Topics:</h5>
+          <div class="collection z-depth-1">
+            <a href="#!" class="collection-item black-text">
+              <!-- <i class="material-icons">headset</i>  -->
+              Music
+            </a>
+            <a href="#!" class="collection-item black-text">
+              <!-- <i class="material-icons">videogame_asset</i>  -->
+              Gaming
+            </a>
+          </div>
         </div>
-      </section>
     </div>
 
 
