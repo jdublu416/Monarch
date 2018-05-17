@@ -21,7 +21,7 @@ module.exports = function(app) {
     });
   });
   
-  app.delete("", function(req, res) {
+  app.delete("/api/authors/:id", function(req, res) {
     db.authors.destroy({
       where: {
         id: req.params.id
@@ -31,6 +31,7 @@ module.exports = function(app) {
         res.json(dbauthors);
       });
   });
+
 
   app.post("/api/authors", function(req, res) {
     db.authors.create(req.body,
@@ -45,7 +46,7 @@ module.exports = function(app) {
   });
 };
 
-app.get("", function(req, res){
+app.get("/api/authors", function(req, res){
   db.authors.findAll({
     where: {
       category: req.params.category
@@ -56,7 +57,7 @@ app.get("", function(req, res){
     });
   });
 
-    app.delete("", function(req, res) {
+    app.delete("/api/authors", function(req, res) {
       db.authors.destroy({
         where: {
           id: req.params.id
@@ -67,7 +68,7 @@ app.get("", function(req, res){
         });
     });
   
-    app.put("", function(req, res) {
+    app.put("/api/authors", function(req, res) {
       db.authors.update(req.body,
         {
           where: {
@@ -79,7 +80,7 @@ app.get("", function(req, res){
         });
     });
   
-  app.post("", function(req, res) {
+  app.post("/api/authors", function(req, res) {
     console.log(req.body);
     db.authors.create({
       title: req.body.title,
