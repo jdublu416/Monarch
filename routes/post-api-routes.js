@@ -81,4 +81,6 @@ app.get("/api/posts/:id", function(req,res){
       res.json(dbPost);
     });
   });
-};
+});
+}
+
