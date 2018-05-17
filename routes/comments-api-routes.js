@@ -22,9 +22,9 @@ module.exports = function(app) {
 //GET  for specific single comment
     app.get("/api/comments/:comm_id", function(req,res){
       db.Comments.findAll({
-        // where:{
-        //   comm_id= req.params.comm_id,
-        // }
+        where:{
+          comm_id= req.params.id,
+        }
       }).then(function(dbmonarch){
         res.json(dbmonarch);
       });

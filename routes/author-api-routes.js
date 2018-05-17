@@ -14,6 +14,7 @@ module.exports = function(app) {
       res.render("index", {author: author});
     });
   });
+// yeet
 
   app.get("/api/authors/:id", function(req, res) {
     db.authors.findAll({}).then(function(dbmonarch) {
