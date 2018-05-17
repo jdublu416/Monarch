@@ -20,7 +20,7 @@ app.get("/api/posts/:subj_id", function(req,res){
       subj_id: req.params.subj_id
     } 
   }).then(function(dbmonarch){
-    res.json(dbmonarch);
+     return res.json(dbmonarch);
   });
 });
  //get for searching for post by author
@@ -30,7 +30,7 @@ app.get("/api/posts/:auth_id", function(req,res){
       auth_id: req.params.auth_id
     } 
   }).then(function(dbmonarch){
-    res.json(dbmonarch);
+    return res.json(dbmonarch);
   });
 });
  //get for searching for single post by post_id
@@ -40,7 +40,7 @@ app.get("/api/posts/:post_id", function(req,res){
       post_id: req.params.post_id
     } 
   }).then(function(dbmonarch){
-    res.json(dbmonarch);
+    return res.json(dbmonarch);
   });
 });
 

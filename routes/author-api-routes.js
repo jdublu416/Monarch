@@ -1,16 +1,16 @@
-var express = require('express');
+
 var db = require("../models");
-var app = express();
+
 module.exports = function(app) {
   app.get("/api/authors", function(req, res) {
     db.authors.findAll({}).then(function(dbmonarch) {
       return res.json(dbmonarch);
     });
   });
-  app.delete("", function(req, res) {
+  app.delete("/api/authors/:auth_id", function(req, res) {
     db.authors.destroy({
       where: {
-        id: req.params.id
+        id: req.params.auth_id
       }
     })
       .then(function(dbauthors) {

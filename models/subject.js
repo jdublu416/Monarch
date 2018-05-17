@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Subject = sequelize.define("subject", {
 
-        subj_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
