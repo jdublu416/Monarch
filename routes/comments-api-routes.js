@@ -6,55 +6,55 @@ module.exports = function(app) {
     app.get("/api/comments", function(req, res) {
       //GET to retrieve all of the comments  
       
-      db.Comments.findAll({}).then(function(dbmonarch) {
-        return res.json(dbmonarch);
+      db.Comments.findAll({}).then(function(dbcomments) {
+        return res.json(dbcomments);
       });
     });
 //GET  for specific single comment
-    app.get("/api/comments/:comm_id", function(req,res){
+    app.get("/api/comments/:id", function(req,res){
       db.Comments.findAll({
         where:{
-          comm_id= req.params.comm_id,
+          id= req.params.id,
         }
-      }).then(function(dbmonarch){
-        res.json(dbmonarch);
+      }).then(function(dbcomments){
+        res.json(dbcomments);
       });
     });
 // GET all comments for  a specific post
     app.get("/api/comments/:post_id", function(req,res){
       db.Comments.findAll({
         where:{
-          post_id: req.params.post_id
+          postsid: req.params.posts.id
         }
       });
     });
 // create a new comment to a specific post
     app.post("/api/posts/:post_id", function(req, res){
       db.Comments.create({
-        post_id: req.params.post_id,
+        postsid: req.params.posts.id,
         comm_body: req.params.comm_body,
-      }).then(function(dbmonarch){
-        res.json(dbmonarch);
+      }).then(function(dbcomments){
+        res.json(dbcomments);
       });
     });
 //update for an existing post
-    app.put("/api/posts/:comm_id", function(req,res){
+    app.put("/api/posts/:id", function(req,res){
       db.Comments.update(req.body,{
         where: {
-          comm_id: req.body.comm_id
+          id: req.body.id
         }
-      }).then(function(dbmonarch){
-        res.json(dbmonarch);
+      }).then(function(dbcomments){
+        res.json(dbcomments);
       });
     });
 //delete a comment
     app.delete("/api/posts/:comm_id",function(req,res){
       db.Comments.destroy({
         where: {
-          comm_id: req.params.comm_id
+          id: req.params.id
         }
-      }).then(function(dbmonarch){
-        res.json(dbmonarch);
+      }).then(function(dbcomments){
+        res.json(dbcomments);
       });
     });
 

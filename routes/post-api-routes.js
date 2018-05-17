@@ -8,39 +8,39 @@ var db = require("../models");
 module.exports = function(app) {
   //get for getting all posts
   app.get("/api/posts", function(req, res) {
-    db.Posts.findAll({}).then(function(dbmonarch) {
-      return res.json(dbmonarch);
+    db.Posts.findAll({}).then(function(dbposts) {
+      return res.json(dbposts);
     });
   });
 
   //get for searching for post by subject
-app.get("/api/posts/:subj_id", function(req,res){
+app.get("/api/posts/:subject.id", function(req,res){
   db.Posts.findAll({
     where: {
-      subj_id: req.params.subj_id
+      subjectid: req.params.subject.id
     } 
-  }).then(function(dbmonarch){
-     return res.json(dbmonarch);
+  }).then(function(dbposts){
+     return res.json(dbposts);
   });
 });
  //get for searching for post by author
-app.get("/api/posts/:auth_id", function(req,res){
+app.get("/api/posts/:authorsid", function(req,res){
   db.Posts.findAll({
     where: {
-      auth_id: req.params.auth_id
+      authorsid: req.params.authors.id
     } 
-  }).then(function(dbmonarch){
-    return res.json(dbmonarch);
+  }).then(function(dbposts){
+    return res.json(dbposts);
   });
 });
  //get for searching for single post by post_id
-app.get("/api/posts/:post_id", function(req,res){
+app.get("/api/posts/:id", function(req,res){
   db.Posts.findAll({
     where: {
-      post_id: req.params.post_id
+      postsid: req.params.id
     } 
-  }).then(function(dbmonarch){
-    return res.json(dbmonarch);
+  }).then(function(dbposts){
+    return res.json(dbposts);
   });
 });
 
@@ -51,25 +51,25 @@ app.get("/api/posts/:post_id", function(req,res){
     db.Posts.create({
       post_title: req.body.post_title,
       post_body: req.body.post_body,
-    }).then(function(dbmonarch){
-      res.json(dbmonarch);
+    }).then(function(dbposts){
+      res.json(dbposts);
     });
   });
 //put route for editing posts
   app.put("/api/posts", function(req,res){
     db.Posts.update(req.body,{
       where: {
-        post_id: req.body.post_id
+        id: req.body.id
       }
     }).then(function(dbPost){
-      res.json(dbmonarch);
+      res.json(dbposts);
     });
   });
 
   app.delete("/api/posts/:id", function(req, res) {
     db.Posts.destroy({
       where: {
-        post_id: req.params.post_id
+        id: req.params.id
       }
     })
       .then(function(dbPost) {

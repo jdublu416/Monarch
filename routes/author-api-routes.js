@@ -3,14 +3,14 @@ var db = require("../models");
 
 module.exports = function(app) {
   app.get("/api/authors", function(req, res) {
-    db.authors.findAll({}).then(function(dbmonarch) {
-      return res.json(dbmonarch);
+    db.authors.findAll({}).then(function(dbauthors) {
+      return res.json(dbauthors);
     });
   });
-  app.delete("/api/authors/:auth_id", function(req, res) {
+  app.delete("/api/authors/:id", function(req, res) {
     db.authors.destroy({
       where: {
-        id: req.params.auth_id
+        id: req.params.id
       }
     })
       .then(function(dbauthors) {
@@ -18,7 +18,7 @@ module.exports = function(app) {
       });
   });
 
-  app.put("", function(req, res) {
+  app.put("/api/authors/:id", function(req, res) {
     db.authors.update(req.body,
       {
         where: {
@@ -31,48 +31,48 @@ module.exports = function(app) {
   });
 };
 
-app.get("", function(req, res){
+app.get("/api/authors", function(req, res){
   db.authors.findAll({
     where: {
-      category: req.params.category
+      subject: req.params.subject.id
     }
   })
-    .then(function(dbmonarch) {
-      res.json(dbmonarch);
+    .then(function(dbauthors) {
+      res.json(dbauthors);
     });
   });
 
-    app.delete("", function(req, res) {
+    app.delete("/api/authors/:id", function(req, res) {
       db.authors.destroy({
         where: {
           id: req.params.id
         }
       })
-        .then(function(dbmonarch) {
-          res.json(dbmonarch);
+        .then(function(dbauthors) {
+          res.json(dbauthors);
         });
     });
   
-    app.put("", function(req, res) {
+    app.put("/api/authors", function(req, res) {
       db.authors.update(req.body,
         {
           where: {
             id: req.body.id
           }
         })
-        .then(function(dbmonarch) {
-          res.json(dbmonarch);
+        .then(function(dbauthors) {
+          res.json(dbauthors);
         });
     });
   
-  app.post("", function(req, res) {
+  app.post("/api/authors/", function(req, res) {
     console.log(req.body);
     db.authors.create({
       title: req.body.title,
       body: req.body.body,
       category: req.body.category
     })
-      .then(function(dbmonarch) {
-        res.json(dbmonarch);
+      .then(function(dbauthors) {
+        res.json(dbauthors);
       });
   });

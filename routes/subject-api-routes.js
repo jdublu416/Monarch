@@ -1,7 +1,7 @@
-var express = require('express');
+
 var db = require("../models");
-var app = express();
 var subject = db.subject;
+
 module.exports = function(app) {
     // GET route for getting all of the todos
     app.get("/", function(req, res) {
