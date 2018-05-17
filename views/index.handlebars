@@ -1,11 +1,12 @@
  {{#each author}}
 
-<p> {{this.auth_FN}} {{this.auth_LN}}</p>
-{{/each}} {{#each subject}}
 
-<p> {{this.sbj_title}} {{this.subj_desc}}</p>
-{{/each}} {{author.auth_user_name}}
-
+  <p> {{this.auth_user_name}} {{this.auth_LN}}</p>
+    {{#each subject}}
+    <p> {{this.sbj_title}} {{this.subj_desc}}</p>
+    {{/each}}
+  {{author.auth_user_name}}
+{{/each}}
 <body>
   <header>
     <nav>
@@ -49,52 +50,49 @@
           </ul>
         </div>
         <div class="row">
-          {{#each subject}}
-          <!-- <div class="container"> -->
-          <!-- <h5>Current Topics:</h5> -->
-          <ul id="posts-section" class="collapsible col s12">
-            <li>
-              <div class="collapsible-header">
-                {{!--
-                <i class="material-icons">headset</i> --}} {{this.subj_desc}}
-              </div>
-              <div class="collapsible-body">
-                <ul class="collapsible">
-                  <li>
-                    <div class="collapsible-header"></div>
-                    <div class="collapsible-body">
-                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ratione hic consequuntur modi!
-                        Molestias in tempora reiciendis necessitatibus ipsa suscipit corporis esse, voluptatem voluptatum
-                        ea.
-                      </span>
-                      <br>
-                      <br>
-                      <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (42)
-                    </div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header">Changing Banjo Strings Underwater</div>
-                    <div class="collapsible-body">
-                      <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, ratione nisi ipsum non esse reprehenderit,
-                        distinctio laudantium repellendus, molestias inventore natus voluptatum eius sequi corrupti.</span>
-                      <br>
-                      <br>
-                      <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (16)
-                    </div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header">Anyone ever heard of a little band called Green Day?</div>
-                    <div class="collapsible-body">
-                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, reiciendis deserunt, officiis dignissimos
-                        totam eveniet nobis explicabo vitae sequi mollitia cupiditate, laboriosam iste labore sapiente.</span>
-                      <br>
-                      <br>
-                      <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (2)
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
+
+{{#each posts}}
+        <!-- <div class="container"> -->
+        <!-- <h5>Current Topics:</h5> -->
+        <ul id="posts-section" class="collapsible col s12">
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">headset</i>{{this.post_title}}</div>
+            <div class="collapsible-body">
+              <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header"></div>
+                  <div class="collapsible-body">
+                    <span>{{this.post_body}}.
+                    </span>
+                    <br>
+                    <br>
+                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (42)
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Changing Banjo Strings Underwater</div>
+                  <div class="collapsible-body">
+                    <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, ratione nisi ipsum non esse reprehenderit,
+                      distinctio laudantium repellendus, molestias inventore natus voluptatum eius sequi corrupti.</span>
+                    <br>
+                    <br>
+                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (16)
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header">Anyone ever heard of a little band called Green Day?</div>
+                  <div class="collapsible-body">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, reiciendis deserunt, officiis dignissimos
+                      totam eveniet nobis explicabo vitae sequi mollitia cupiditate, laboriosam iste labore sapiente.</span>
+                    <br>
+                    <br>
+                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (2)
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
 
             {{!--
             <li>
