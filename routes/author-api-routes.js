@@ -15,13 +15,13 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/authors", function(req, res) {
+  app.get("/api/authors/:id", function(req, res) {
     db.authors.findAll({}).then(function(dbmonarch) {
       return res.json(dbmonarch);
     });
   });
   
-  app.delete("", function(req, res) {
+  app.delete("/api/authors/:id", function(req, res) {
     db.authors.destroy({
       where: {
         id: req.params.id
@@ -32,7 +32,7 @@ module.exports = function(app) {
       });
   });
 
-  app.put("", function(req, res) {
+  app.put("/api/authors/:id", function(req, res) {
     db.authors.update(req.body,
       {
         where: {
@@ -45,10 +45,10 @@ module.exports = function(app) {
   });
 };
 
-app.get("", function(req, res){
+app.get("/api/authors/:id", function(req, res){
   db.authors.findAll({
     where: {
-      category: req.params.category
+      category: req.params.auth_id
     }
   })
     .then(function(dbmonarch) {
@@ -56,10 +56,10 @@ app.get("", function(req, res){
     });
   });
 
-    app.delete("", function(req, res) {
+    app.delete("/api/authors/:id", function(req, res) {
       db.authors.destroy({
         where: {
-          id: req.params.id
+          id: req.params.auth_id
         }
       })
         .then(function(dbmonarch) {
@@ -67,11 +67,11 @@ app.get("", function(req, res){
         });
     });
   
-    app.put("", function(req, res) {
+    app.put("/api/authors/:id", function(req, res) {
       db.authors.update(req.body,
         {
           where: {
-            id: req.body.id
+            id: req.params.auth_id
           }
         })
         .then(function(dbmonarch) {
@@ -79,12 +79,16 @@ app.get("", function(req, res){
         });
     });
   
-  app.post("", function(req, res) {
+  app.post("/api/authors/:id", function(req, res) {
     console.log(req.body);
     db.authors.create({
-      title: req.body.title,
-      body: req.body.body,
-      category: req.body.category
+// DO NOT DELETE THE COMMENT BELOW
+      // Yote is the past tense verb of yeet. Change my mind.
+      auth_FN: req.body.auth_FN,
+      auth_LN: req.body.auth_LN,
+      auth_user_name: req.body.auth_user_name,
+      auth_email: req.body.auth_email,
+      auth_password: req.body.auth_password
     })
       .then(function(dbmonarch) {
         res.json(dbmonarch);
