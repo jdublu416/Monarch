@@ -32,12 +32,12 @@ module.exports = function(app) {
       });
   });
 
-  app.put("", function(req, res) {
-    db.authors.update(req.body,
+  app.post("/api/authors", function(req, res) {
+    db.authors.create(req.body,
       {
-        where: {
-          id: req.body.id
-        }
+
+        userName: req.body.title,
+        password: req.body.body,
       })
       .then(function(dbauthors) {
         res.json(dbauthors);

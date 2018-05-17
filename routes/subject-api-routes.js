@@ -3,13 +3,39 @@ var db = require("../models");
 
 
 module.exports = function(app) {
-  app.get("/subjects", function(req, res) {
 
-    db.subject.findAll({}).then(function(subject) {
+  app.get("/test", function (req, res) {
 
-      res.render("index", {subject: subject});
+    return Promise.all([
+
+        db.subject.findAll({}),
+
+        db.authors.findAll({}),
+
+        db.posts.findAll({
+            where: {subj_id: 1} //to be unhard coded
+        }),
+        db.comments.findAll({
+            where: {post_id: 1} //to be unhard coded
+        }),
+
+    ]).then(([subject, author, posts, comments]) => {
+
+        res.render("index", {
+            subject: subject,
+            author: author,
+            posts: posts,
+            comments: comments
+        });
     });
-  });
+});
+  // app.get("/subjects", function(req, res) {
+
+  //   db.subject.findAll({}).then(function(subject) {
+
+  //     res.render("index", {subject: subject});
+  //   });
+  // });
 
     // GET route for getting all of the todos
     app.get("/api/subjects", function(req, res) {

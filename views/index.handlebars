@@ -1,12 +1,11 @@
  {{#each author}}
 
-<p> {{this.auth_FN}} {{this.auth_LN}}</p>
+  <p> {{this.auth_user_name}} {{this.auth_LN}}</p>
+    {{#each subject}}
+    <p> {{this.sbj_title}} {{this.subj_desc}}</p>
+    {{/each}}
+  {{author.auth_user_name}}
 {{/each}}
- {{#each subject}}
-
-<p> {{this.sbj_title}} {{this.subj_desc}}</p>
-{{/each}}
-{{author.auth_user_name}}
 <body>
   <header>
     <nav>
@@ -50,20 +49,19 @@
               </ul>
             </div>
         <div class="row">
-{{#each subject}}
+{{#each posts}}
         <!-- <div class="container"> -->
         <!-- <h5>Current Topics:</h5> -->
         <ul id="posts-section" class="collapsible col s12">
           <li>
             <div class="collapsible-header">
-              <i class="material-icons">headset</i>{{this.subj_desc}}</div>
+              <i class="material-icons">headset</i>{{this.post_title}}</div>
             <div class="collapsible-body">
               <ul class="collapsible">
                 <li>
                   <div class="collapsible-header"></div>
                   <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ratione hic consequuntur modi! Molestias
-                      in tempora reiciendis necessitatibus ipsa suscipit corporis esse, voluptatem voluptatum ea.
+                    <span>{{this.post_body}}.
                     </span>
                     <br>
                     <br>
