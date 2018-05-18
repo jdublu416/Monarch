@@ -24,13 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       defaultValue: 0
     },
-    subj_id:{
-      type: DataTypes.INTEGER
-    },
-    auth_id:{
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+    
   });
 
   return Posts;

@@ -15,11 +15,12 @@ module.exports = function(app) {
   });
 
   app.get("/api/authors", function(req, res) {
-    db.authors.findAll({}).then(function(dbMonAuth) {
-      return res.json(dbMonAuth);
+
+    db.authors.findAll({}).then(function(dbauthors) {
+      return res.json(dbauthors);
     });
   });
-  
+
   app.delete("/api/authors/:id", function(req, res) {
     db.authors.destroy({
       where: {
@@ -34,6 +35,7 @@ module.exports = function(app) {
 
   app.post("/api/authors", function(req, res) {
     db.authors.create(req.body,
+
       {
 
         userName: req.body.title,
@@ -48,22 +50,28 @@ module.exports = function(app) {
 app.get("/api/authors", function(req, res){
   db.authors.findAll({
     where: {
-      category: req.params.category
+      subject: req.params.subject.id
     }
   })
-    .then(function(dbMonAuth) {
-      res.json(dbMonAuth);
+
+    .then(function(dbauthors) {
+      res.json(dbauthors);
     });
   });
 
-    app.delete("/api/authors", function(req, res) {
+    app.delete("/api/authors/:id", function(req, res) {
+
+
       db.authors.destroy({
         where: {
           id: req.params.id
         }
       })
-        .then(function(dbMonAuth) {
-          res.json(dbMonAuth);
+
+        .then(function(dbauthors) {
+          res.json(dbauthors);
+
+       
         });
     });
   
@@ -74,19 +82,25 @@ app.get("/api/authors", function(req, res){
             id: req.body.id
           }
         })
-        .then(function(dbMonAuth) {
-          res.json(dbMonAuth);
+
+        .then(function(dbauthors) {
+          res.json(dbauthors);
         });
     });
   
-  app.post("/api/authors", function(req, res) {
+  app.post("/api/authors/", function(req, res) {
+
+        
+
     console.log(req.body);
     db.authors.create({
       title: req.body.title,
       body: req.body.body,
       category: req.body.category
     })
-      .then(function(dbMonAuth) {
-        res.json(dbMonAuth);
+
+      .then(function(dbauthors) {
+        res.json(dbauthors);
+
       });
   });

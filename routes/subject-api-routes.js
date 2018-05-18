@@ -1,4 +1,7 @@
+
+
 var db = require("../models");
+var subject = db.subject;
 
 module.exports = function(app) {
 
