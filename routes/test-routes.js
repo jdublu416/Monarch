@@ -15,10 +15,10 @@ module.exports = function (app) {
             db.authors.findAll({}),
 
             db.posts.findAll({
-                where: {subj_id: 1} //to be unhard coded
+                where: {subjectId: 1} //to be unhard coded
             }),
             db.comments.findAll({
-                where: {post_id: 1} //to be unhard coded
+                where: {postId: 1} //to be unhard coded
             }),
 
         ]).then(([subject, author, posts]) => {

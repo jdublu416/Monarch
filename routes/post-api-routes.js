@@ -18,20 +18,20 @@ module.exports = function(app) {
   });
 
   //get for searching for post by subject
-app.get("/api/posts/:subject.id", function(req,res){
+app.get("/api/posts/:subjectId", function(req,res){
   db.Posts.findAll({
     where: {
-      subjectid: req.params.subject.id
+      subjectId: req.params.subjectId
     } 
   }).then(function(dbposts){
      return res.json(dbposts);
   });
 });
  //get for searching for post by author
-app.get("/api/posts/:authorsid", function(req,res){
+app.get("/api/posts/:authorId", function(req,res){
   db.Posts.findAll({
     where: {
-      authorsid: req.params.authors.id
+      authorId: req.params.authorId
     } 
   }).then(function(dbposts){
     return res.json(dbposts);
@@ -41,7 +41,7 @@ app.get("/api/posts/:authorsid", function(req,res){
 app.get("/api/posts/:id", function(req,res){
   db.Posts.findAll({
     where: {
-      postsid: req.params.id
+      postId: req.params.postId
     } 
   }).then(function(dbposts){
     return res.json(dbposts);

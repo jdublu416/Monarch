@@ -14,8 +14,6 @@ module.exports = function(app) {
     // get for all posts
     app.get("/api/comments", function(req, res) {
       //GET to retrieve all of the comments  
-      
-
       db.Comments.findAll({}).then(function(dbcomments) {
         return res.json(dbcomments);
       });
@@ -24,7 +22,7 @@ module.exports = function(app) {
     app.get("/api/comments/:id", function(req,res){
       db.Comments.findAll({
         where:{
-          id= req.params.id,
+          id: req.params.id
         }
       }).then(function(dbcomments){
         res.json(dbcomments);
@@ -32,18 +30,19 @@ module.exports = function(app) {
       });
     });
 // GET all comments for  a specific post
-    app.get("/api/comments/:post_id", function(req,res){
+    app.get("/api/comments/:postId", function(req,res){
       db.Comments.findAll({
         where:{
-          postsid: req.params.posts.id
+          postId: req.params.postId
         }
       });
     });
 // create a new comment to a specific post
-    app.post("/api/posts/:post_id", function(req, res){
+    app.post("/api/posts/:postId", function(req, res){
       db.Comments.create({
-        postsid: req.params.posts.id,
+        postsId: req.params.postsId,
         comm_body: req.params.comm_body,
+        
 
       }).then(function(dbcomments){
         res.json(dbcomments);
@@ -64,7 +63,7 @@ module.exports = function(app) {
       });
     });
 //delete a comment
-    app.delete("/api/posts/:comm_id",function(req,res){
+    app.delete("/api/posts/:id",function(req,res){
       db.Comments.destroy({
         where: {
           id: req.params.id
