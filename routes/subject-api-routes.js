@@ -5,38 +5,38 @@ var subject = db.subject;
 
 module.exports = function(app) {
 
-  app.get("/test", function (req, res) {
+//   app.get("/test", function (req, res) {
 
-    return Promise.all([
+//     return Promise.all([
 
-        db.subject.findAll({}),
+//         db.subject.findAll({}),
 
-        db.authors.findAll({}),
+//         db.authors.findAll({}),
 
-        db.posts.findAll({
-            where: {subj_id: 1} //to be unhard coded
-        }),
-        db.comments.findAll({
-            where: {post_id: 1} //to be unhard coded
-        }),
+//         db.posts.findAll({
+//             where: {subj_id: 1} //to be unhard coded
+//         }),
+//         db.comments.findAll({
+//             where: {post_id: 1} //to be unhard coded
+//         }),
 
-    ]).then(([subject, author, posts, comments]) => {
+//     ]).then(([subject, author, posts, comments]) => {
 
-        res.render("index", {
-            subject: subject,
-            author: author,
-            posts: posts,
-            comments: comments
-        });
+//         res.render("index", {
+//             subject: subject,
+//             author: author,
+//             posts: posts,
+//             comments: comments
+//         });
+//     });
+// });
+  app.get("/subjects", function(req, res) {
+
+    db.subject.findAll({}).then(function(subject) {
+
+      res.render("index", {subject: subject});
     });
-});
-  // app.get("/subjects", function(req, res) {
-
-  //   db.subject.findAll({}).then(function(subject) {
-
-  //     res.render("index", {subject: subject});
-  //   });
-  // });
+  });
 
   // GET route for getting all of the subjects
   app.get("/api/subjects", function(req, res) {

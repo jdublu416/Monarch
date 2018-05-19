@@ -92,7 +92,7 @@
             veryImportant(() => {
                 audio.play();
             });
-            /*$(".col-item-subject").on("click", event => {
+            $(".col-item-subject").on("click", event => {
                 console.log(event.target);
                 if ($(event.target).hasClass("active")) {
                     console.log("neat");
@@ -101,7 +101,7 @@
                     $(".col-item-subject").removeClass("active");
                     $(event.target).toggleClass("active");
                 }
-            });*/
+            });
             M.textareaAutoResize($('#new_post_body'));
             $("#new_post_form").on("submit", function (event) {
                 event.preventDefault();
@@ -121,6 +121,28 @@
                     data: postData
                 });
             });
+        });
+
+        $("#user_register_submit").on("submit", function (event) {
+            event.preventDefault();
+            const currentURL = window.location.origin;
+            const postData = {
+                author_user_name: $("#new_user_name")
+                    .val()
+                    .trim(),
+                author_password: $("#new_user_password")
+                    .val()
+                    .trim(),
+                author_email: $("#new_user_email")
+                    .val()
+                    .trim()
+            };
+            $.ajax({
+                url: "/api/authors",
+                method: "POST",
+                data: authorData
+            });
+        });
         });
 
         veryImportant = cb => {
@@ -160,7 +182,7 @@
                 }
             );
         });
-            
+
             if (user.userName == "User" && user.userPassword == "Pass") {
                 $('#nav-mobile').addClass('hide');
             }
