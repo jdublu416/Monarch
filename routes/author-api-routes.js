@@ -27,8 +27,8 @@ module.exports = function(app) {
         id: req.params.id
       }
     })
-      .then(function(dbMonAuth) {
-        res.json(dbMonAuth);
+      .then(function(dbauthors) {
+        res.json(dbauthors);
       });
   });
 
@@ -41,8 +41,8 @@ module.exports = function(app) {
         userName: req.body.title,
         password: req.body.body,
       })
-      .then(function(dbMonAuth) {
-        res.json(dbMonAuth);
+      .then(function(dbauthors) {
+        res.json(dbauthors);
       });
   });
 };
