@@ -1,12 +1,11 @@
- {{#each author}}
+ {{!-- {{#each author}}
 
 
-  <p> {{this.auth_user_name}} {{this.auth_LN}}</p>
-    {{#each subject}}
-    <p> {{this.sbj_title}} {{this.subj_desc}}</p>
-    {{/each}}
-  {{author.auth_user_name}}
-{{/each}}
+<p> {{this.auth_user_name}} {{this.auth_LN}}</p>
+{{#each subject}}
+<p> {{this.sbj_title}} {{this.subj_desc}}</p>
+{{/each}} {{author.auth_user_name}} {{/each}} --}}
+
 <body>
   <header>
     <nav>
@@ -39,204 +38,133 @@
         <div class=" row">
           <ul id="tabbys" class="tabs">
             <li class="tab col s4">
-              <a id="new-post-tab" class=" waves-effect waves-light modal-trigger blue accent-4" href="#new_post_modal">New Post</a>
+              <a id="new-post-tab" class="btn waves-effect waves-light modal-trigger white-text blue accent-4" href="#new_post_modal">New Post</a>
             </li>
+            {{!--
             <li class="tab col s4">
               <a href="#">Top</a>
             </li>
             <li class="tab col s4">
               <a href="#">Rand</a>
-            </li>
-          </ul>
-        </div>
-        <div class="row">
-
-{{#each posts}}
-        <!-- <div class="container"> -->
-        <!-- <h5>Current Topics:</h5> -->
-        <ul id="posts-section" class="collapsible col s12">
-          <li>
-            <div class="collapsible-header">
-              <i class="material-icons">headset</i>{{this.post_title}}</div>
-            <div class="collapsible-body">
-              <ul class="collapsible">
-                <li>
-                  <div class="collapsible-header"></div>
-                  <div class="collapsible-body">
-                    <span>{{this.post_body}}.
-                    </span>
-                    <br>
-                    <br>
-                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (42)
-                  </div>
-                </li>
-                <li>
-                  <div class="collapsible-header">Changing Banjo Strings Underwater</div>
-                  <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, ratione nisi ipsum non esse reprehenderit,
-                      distinctio laudantium repellendus, molestias inventore natus voluptatum eius sequi corrupti.</span>
-                    <br>
-                    <br>
-                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (16)
-                  </div>
-                </li>
-                <li>
-                  <div class="collapsible-header">Anyone ever heard of a little band called Green Day?</div>
-                  <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, reiciendis deserunt, officiis dignissimos
-                      totam eveniet nobis explicabo vitae sequi mollitia cupiditate, laboriosam iste labore sapiente.</span>
-                    <br>
-                    <br>
-                    <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (2)
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-            {{!--
-            <li>
-              <div class="collapsible-header">
-                <i class="material-icons">videogame_asset</i>Gaming</div>
-              <div class="collapsible-body">
-                <ul class="collapsible">
-                  <li>
-                    <div class="collapsible-header">I keep dying in Zelda this game is trash</div>
-                    <div class="collapsible-body">
-                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, quibusdam iste? Quam officiis architecto
-                        vitae vero explicabo ratione perferendis quod expedita. Autem repellendus sed quae.</span>
-                      <br>
-                      <br>
-                      <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (127)
-                    </div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header">Fighting Games (General)</div>
-                    <div class="collapsible-body">
-                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas assumenda obcaecati est error, quibusdam
-                        eveniet ipsum aperiam voluptatibus asperiores, incidunt adipisci officiis, dolorum magni! Maxime.</span>
-                      <br>
-                      <br>
-                      <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (61)
-                    </div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header">Post Your Scrub Moments Here</div>
-                    <div class="collapsible-body">
-                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cumque voluptatum nobis quas, beatae
-                        placeat consequuntur. Eum odio aliquam consequatur perspiciatis tempore ipsa dolorem alias.
-                      </span>
-                      <br>
-                      <br>
-                      <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="go_to_comments" name="comment">See Comments (13)
-                    </div>
-                  </li>
-                </ul>
-              </div>
             </li> --}}
           </ul>
-          {{/each}}
-          <!-- </div> -->
+        </div>
+        <div class="row" id="current_subject">
 
-          <!-- <ul class="collection">
-          <li class="collection-item">thingydoo l</li>
-          <li class="collection-item">thingydoo l</li>
-          <li class="collection-item">thingydoo l</li>
-          <li class="collection-item">thingydoo l</li>
-          <li class="collection-item">thingydoo l</li>
-          <li class="collection-item">thingydoo l</li>
-          <li class="collection-item">thingydoo l</li>
-          <li class="collection-item">thingydoo l</li>
-          <li class="collection-item">thingydoo l</li>
-
-        </ul> -->
+          <ul id="posts-section" class="collapsible col s12">
+            {{#each posts}}
+            <!-- <div class="container"> -->
+            <!-- <h5>Current Topics:</h5> -->
+            <li>
+              <div class="collapsible-header">
+                {{this.post_title}}</div>
+              <div class="collapsible-body">
+                <span>
+                  {{this.post_body}}
+                </span>
+                <br>
+                <br>
+                <button class="btn-small waves-effect waves-light modal-trigger blue accent-4 post_new_comment" value={{this.id}} id="post_new_comment"
+                  name="new_comment">Post a Comment
+                </button>
+                <button class="btn-small waves-effect waves-light modal-trigger blue accent-4 go_to_comments" value={{this.id}} id="go_to_comments"
+                  name="comment">See Comments
+                </button>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
       </section>
 
       <section id="topics" class="right col s3">
         <div class="container">
           <div class="row">
+            <h5>
+              Subjects:
+            </h5>
             <ul class="collection z-depth-1">
               {{#each subject}}
-              <a href="#" class="collection-item col-item-subject black-text">
+              <a href="#" class="collection-item col-item-subject black-text subject_selector" value={{this.id}}>
                 {{this.subj_title}}
                 </li>
                 {{/each}}
           </div>
         </div>
       </section>
-      </div>
+    </div>
 
 
-      <!-- Modal for logging in -->
-      <div id="login_modal" class="modal">
-        <div class="modal-content">
-          <form>
-            <div class="row">
-              <div class="container">
-                <div class="input-field col s6">
-                  <input placeholder="username" id="user_name" type="text" class="validate">
-                  <label for="user_name ">User Name</label>
-                </div>
-              </div>
-              <div class="container">
-                <div class="input-field col s6">
-                  <input placeholder="********" id="user_password" type="password" class="validate">
-                  <label for="user_password">Password</label>
-                </div>
+    <!-- Modal for logging in -->
+    <div id="login_modal" class="modal">
+      <div class="modal-content">
+        <form>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="username" id="user_name" type="text" class="validate">
+                <label for="user_name ">User Name</label>
               </div>
             </div>
-            <div class="row">
-              <div class="center col s12">
-                <button class="btn waves-effect waves-light blue accent-4" id="user_login_submit" type="submit " name="action ">Log In
-                </button>
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="********" id="user_password" type="password" class="validate">
+                <label for="user_password">Password</label>
               </div>
             </div>
-          </form>
-        </div>
-      </div>
-
-
-      <!-- Modal for registering -->
-      <div id="register_modal" class="modal">
-        <div class="modal-content">
-          <form>
-            <div class="row">
-              <div class="container">
-                <div class="input-field col s6">
-                  <input placeholder="username" id="new_user_name" type="text" class="validate">
-                  <label for="user_name ">Desired user name:</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="container">
-                <div class="input-field col s6">
-                  <input placeholder="********" id="new_user_password" type="password" class="validate">
-                  <label for="user_password">Desired password:</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="container">
-                <div class="input-field col s6">
-                  <input placeholder="jane.doe@example.com" id="new_user_email" type="email" class="validate">
-                  <label for="user_email">Email:</label>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="row">
-          <div class="center col s12">
-            <button class="btn waves-effect waves-light blue accent-4" id="user_register_submit" type="submit" name="action">Register
-            </button>
           </div>
-        </div>
+          <div class="row">
+            <div class="center col s12">
+              <button class="btn waves-effect waves-light blue accent-4" id="user_login_submit" type="submit " name="action ">Log In
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
 
 
-      <!-- Modal for posting -->
+    <!-- Modal for registering -->
+    <div id="register_modal" class="modal">
+      <div class="modal-content">
+        <form>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="username" id="new_user_name" type="text" class="validate">
+                <label for="user_name ">Desired user name:</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="********" id="new_user_password" type="password" class="validate">
+                <label for="user_password">Desired password:</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="jane.doe@example.com" id="new_user_email" type="email" class="validate">
+                <label for="user_email">Email:</label>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="center col s12">
+          <button class="btn waves-effect waves-light blue accent-4" id="user_register_submit" type="submit" name="action">Register
+          </button>
+        </div>
+      </div>
+      </form>
+    </div>
+    </div>
+
+
+    <!-- Modal for posting -->
     <div id="new_post_modal" class="modal">
       <div class="modal-content">
         <form id="new_post_form">
@@ -256,7 +184,7 @@
           </div>
           <div class="row">
             <div class="center col s12">
-              <button class="btn waves-effect waves-light blue accent-4" id="new_post__submit" type="submit " name="action ">Post
+              <button class="btn waves-effect waves-light blue accent-4 modal-close" id="new_post__submit" type="submit " name="action ">Post
               </button>
             </div>
           </div>
