@@ -36,18 +36,20 @@ module.exports = function(app) {
 
 
   app.post("/api/authors", function(req, res) {
-    db.authors.create(req.body,
+    db.authors.create(
 
       {
-
-        userName: req.body.title,
-        password: req.body.body,
+        auth_FN: req.body.auth_FN,
+        auth_LN: req.body.auth_LN,
+        auth_user_name: req.body.auth_user_name,
+        auth_email: req.body.auth_email,
+        auth_password: req.body.auth_password
       })
       .then(function(dbauthors) {
         res.json(dbauthors);
       });
   });
-};
+
 
 app.get("/api/authors", function(req, res){
   db.authors.findAll({
@@ -90,19 +92,4 @@ app.get("/api/authors", function(req, res){
         });
     });
   
-  app.post("/api/authors/", function(req, res) {
-
-        
-
-    console.log(req.body);
-    db.authors.create({
-      title: req.body.title,
-      body: req.body.body,
-      category: req.body.category
-    })
-
-      .then(function(dbauthors) {
-        res.json(dbauthors);
-
-      });
-  });
+  }
