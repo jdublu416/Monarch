@@ -26,7 +26,7 @@ require("./routes/comments-api-routes.js")(app);
 // require("./routes/html-routes.js")(app);
 // app.use('./routes');
 
-db.sequelize.sync({force: false}).then(function(){
+
 
 db.sequelize.sync({force: false}).then(function(){
 
