@@ -27,9 +27,7 @@ require("./routes/comments-api-routes.js")(app);
 // app.use('./routes');
 
 db.sequelize.sync({force: false}).then(function(){
-
-db.sequelize.sync({force: false}).then(function(){
-
+// app.use('./routes');
     app.listen(PORT, function(){
         console.log("server listening on: https://localhost:"+PORT);
     });

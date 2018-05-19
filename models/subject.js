@@ -2,12 +2,12 @@ module.exports = function(sequelize, DataTypes) {
     var Subject = sequelize.define("subject", {
 
 
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true  
-        },
+        id: { 
+            type: DataTypes.INTEGER, 
+            allowNull: false, 
+            auto_increment: true, 
+            primaryKey: true   
+        }, 
 
 
         subj_title:{
