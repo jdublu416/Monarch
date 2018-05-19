@@ -1,4 +1,7 @@
+
+
 var db = require("../models");
+var subject = db.subject;
 
 module.exports = function(app) {
   app.get("/subjects", function(req, res) {
@@ -27,7 +30,14 @@ module.exports = function(app) {
     db.subject.findAll({}).then(function(subject) {
       res.render("index", { subject: subject });
     });
-  });
+});
+  // app.get("/subjects", function(req, res) {
+
+  //   db.subject.findAll({}).then(function(subject) {
+
+  //     res.render("index", {subject: subject});
+  //   });
+  // });
 
   // GET route for getting all of the subjects
   app.get("/api/subjects", function(req, res) {

@@ -15,7 +15,7 @@
             display: flex;
             min-height: 100vh;
             flex-direction: column;
-            background-color: blueviolet;
+
         }
 
         nav {
@@ -66,21 +66,14 @@
 
 
         @media only screen and (max-width: 992px) {
-            body {
-                background-color: chartreuse;
 
-            }
             #list {
                 max-width: 100%;
 
             }
         }
 
-        @media only screen and (max-width: 600px) {
-            body {
-                background-color: chocolate;
-            }
-        }
+        @media only screen and (max-width: 600px) {}
     </style>
 </head>
 
@@ -156,12 +149,23 @@
             alert("logged in as" + " " + user.userName + " ...not really only testing");
 
 
+            $.ajax("/api/authors", {
+                type: "POST",
+                data: user,
+            }).then(
+                function () {
+                    console.log("posting" user)
+                    // Reload the page to get the updated list
 
-            { {  for testing porpoises} }
+                }
+            );
+        });
+            
             if (user.userName == "User" && user.userPassword == "Pass") {
                 $('#nav-mobile').addClass('hide');
             }
-        })*/
+
+
     </script>
 </body>
 
