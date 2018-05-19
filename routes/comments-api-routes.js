@@ -14,22 +14,23 @@ module.exports = function(app) {
     // get for all posts
     app.get("/api/comments", function(req, res) {
       //GET to retrieve all of the comments  
-      db.Comments.findAll({}).then(function(dbcomments) {
+      db.comments.findAll({}).then(function(dbcomments) {
         return res.json(dbcomments);
       });
     });
 //GET  for specific single comment
-    app.get("/api/comments/:comm_id", function(req,res){
+    app.get("/api/comments/:id", function(req,res){
       db.comments.findAll({
-        // where:{
-        //   comm_id= req.params.comm_id,
-        // }
-      }).then(function(dbmonarch){
-        res.json(dbmonarch);
+        where:{
+          id: req.params.id
+        }
+      }).then(function(dbcomments){
+        res.json(dbcomments);
+
       });
     });
 // GET all comments for  a specific post
-    app.get("/api/comments/:post_id", function(req,res){
+    app.get("/api/comments/:postId", function(req,res){
       db.comments.findAll({
         where:{
           postId: req.params.postId
@@ -37,19 +38,20 @@ module.exports = function(app) {
       });
     });
 // create a new comment to a specific post
-    app.post("/api/posts/:post_id", function(req, res){
+    app.post("/api/posts/:postId", function(req, res){
       db.comments.create({
-        post_id: req.params.post_id,
-        comm_body: req.params.comm_body,
+        comm_body: req.body.comm_body,
+        comm_vote: req.body.comm_vote,
+        postId: req.body.postId,
+        authorId: req.body.authorId
         
-
       }).then(function(dbcomments){
         res.json(dbcomments);
 
       });
     });
 //update for an existing post
-    app.put("/api/posts/:comm_id", function(req,res){
+    app.put("/api/posts/:id", function(req,res){
       db.comments.update(req.body,{
         where: {
           id: req.body.id
@@ -61,8 +63,9 @@ module.exports = function(app) {
      
       });
     });
+
 //delete a comment
-    app.delete("/api/posts/:comm_id",function(req,res){
+    app.delete("/api/posts/:id",function(req,res){
       db.comments.destroy({
         where: {
           id: req.params.id
