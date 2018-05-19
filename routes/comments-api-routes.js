@@ -21,7 +21,7 @@ module.exports = function(app) {
     });
 //GET  for specific single comment
     app.get("/api/comments/:comm_id", function(req,res){
-      db.Comments.findAll({
+      db.comments.findAll({
         // where:{
         //   comm_id= req.params.comm_id,
         // }
@@ -31,7 +31,7 @@ module.exports = function(app) {
     });
 // GET all comments for  a specific post
     app.get("/api/comments/:post_id", function(req,res){
-      db.Comments.findAll({
+      db.comments.findAll({
         where:{
           post_id: req.params.post_id
         }
@@ -39,7 +39,7 @@ module.exports = function(app) {
     });
 // create a new comment to a specific post
     app.post("/api/posts/:post_id", function(req, res){
-      db.Comments.create({
+      db.comments.create({
         post_id: req.params.post_id,
         comm_body: req.params.comm_body,
       }).then(function(dbmonarch){
@@ -48,7 +48,7 @@ module.exports = function(app) {
     });
 //update for an existing post
     app.put("/api/posts/:comm_id", function(req,res){
-      db.Comments.update(req.body,{
+      db.comments.update(req.body,{
         where: {
           comm_id: req.body.comm_id
         }
@@ -58,7 +58,7 @@ module.exports = function(app) {
     });
 //delete a comment
     app.delete("/api/posts/:comm_id",function(req,res){
-      db.Comments.destroy({
+      db.comments.destroy({
         where: {
           comm_id: req.params.comm_id
         }
