@@ -12,10 +12,11 @@ module.exports = function(app) {
 
     }).then(function(author) {
 
-      res.render("index", {author: author});
+      res.render("index", {authors: authors});
     });
   });
-
+  
+//
   app.get("/api/authors", function(req, res) {
 
     db.authors.findAll({}).then(function(dbauthors) {
@@ -36,7 +37,7 @@ module.exports = function(app) {
 
 
   app.post("/api/authors", function(req, res) {
-    db.authors.create(
+    dbauthors.create(
 
       {
         auth_FN: req.body.auth_FN,
@@ -52,7 +53,7 @@ module.exports = function(app) {
 
 
 app.get("/api/authors", function(req, res){
-  db.authors.findAll({
+  dbauthors.findAll({
     where: {
       subject: req.params.subject.id
     }
@@ -66,7 +67,7 @@ app.get("/api/authors", function(req, res){
     app.delete("/api/authors/:id", function(req, res) {
 
 
-      db.authors.destroy({
+      dbauthors.destroy({
         where: {
           id: req.params.id
         }
@@ -80,7 +81,7 @@ app.get("/api/authors", function(req, res){
     });
   
     app.put("/api/authors", function(req, res) {
-      db.authors.update(req.body,
+      dbauthors.update(req.body,
         {
           where: {
             id: req.body.id
