@@ -1,12 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  app.get("/posts", function(req, res) {
-    db.posts.findAll({}).then(function(post) {
-      res.render("index", { post: post });
-    });
-  });
-
+  
   //get for getting all posts
   app.get("/api/posts", function(req, res) {
     db.posts.findAll({}).then(function(dbposts) {
@@ -15,26 +10,28 @@ module.exports = function(app) {
   });
 
   //get for searching for post by subject
-  app.get("/api/posts/:subjectId", function(req, res) {
+  app.get("/api/posts/subject/:subjectId", function(req, res) {
     db.posts
       .findAll({
         where: {
           subjectId: req.params.subjectId
-        }
-        // include:[db.Subject]
+        },
+        include:[db.Subject]
       })
       .then(function(posts) {
-        // return res.json(posts);
-        res.render("index", { posts: posts });
+        return res.json(posts);
+        // res.render("index", { posts: posts });
       });
   });
+
   //get for searching for post by author
-  app.get("/api/posts/:authorId", function(req, res) {
+  app.get("/api/posts/authors/:authorId", function(req, res) {
     db.posts
       .findAll({
         where: {
           authorId: req.params.authorId
-        }
+        },
+        include: [db.Authors]
       })
       .then(function(dbposts) {
         return res.json(dbposts);
@@ -45,7 +42,7 @@ module.exports = function(app) {
     db.posts
       .findAll({
         where: {
-          postId: req.params.postId
+          Id: req.body.Id
         }
       })
       .then(function(dbposts) {

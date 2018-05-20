@@ -3,15 +3,8 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-  app.get("/comments", function(req, res) {
-
-    db.comments.findAll({}).then(function(comment) {
-
-      res.render("index", {comment: comment});
-    });
-  });
-
-    // get for all posts
+ 
+    // get for all comments
     app.get("/api/comments", function(req, res) {
       //GET to retrieve all of the comments  
       db.comments.findAll({}).then(function(dbcomments) {
@@ -30,13 +23,15 @@ module.exports = function(app) {
       });
     });
 // GET all comments for  a specific post
-    app.get("/api/comments/:postId", function(req,res){
+    app.get("/api/comments/posts/:postId", function(req,res){
       db.comments.findAll({
         where:{
           postId: req.params.postId
-        }
+        },
+        include: [db.Posts]
       });
     });
+    
 // create a new comment to a specific post
     app.post("/api/posts/:postId", function(req, res){
       db.comments.create({
