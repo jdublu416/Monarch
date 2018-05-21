@@ -1,11 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
     var Subject = sequelize.define("subject", {
-        subj_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            auto_increment: true,
-            primaryKey: true  
-        },
+
+
+        id: { 
+            type: DataTypes.INTEGER, 
+            allowNull: false, 
+            auto_increment: true, 
+            primaryKey: true   
+        }, 
+
+
         subj_title:{
             type: DataTypes.STRING,
             allowNull: false,

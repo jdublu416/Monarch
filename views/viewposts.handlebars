@@ -1,0 +1,38 @@
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" id="logo" class="left brand-logo">
+                    <img class="responsive-img hide-on-small-and-down" src="buttfly.png" /> Monarch </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="row">
+            <section id="list" class="col s12 m6">
+                <ul id="posts-section" class="collapsible col s12">
+                    {{#each comments}}
+                    <li>
+                        <div class="collapsible-header">
+                            {{this.comment_body}}</div>
+                        <div class="collapsible-body">
+                            {{!--
+                            <span>
+                                {{this.child.comment}}
+                            </span> --}}
+                            <br>
+                            <br>
+                            <button class="btn-small waves-effect waves-light modal-trigger blue accent-4" id="post_new_comment" name="new_comment">Post a Comment
+                            </button>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </section>
+        </div>
+
+
+    </main>
+</body>

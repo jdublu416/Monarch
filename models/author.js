@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Authors = sequelize.define("authors", {
-    auth_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      auto_increment: true,
+      autoIncrement: true,
       primaryKey: true
     },
     auth_FN: {
@@ -44,7 +44,7 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notEmpty: true
       },
-    }
+    },
   });
 
   return Authors;

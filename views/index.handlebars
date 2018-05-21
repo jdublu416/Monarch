@@ -1,0 +1,374 @@
+ {{!-- {{#each author}}
+
+
+<p> {{this.auth_user_name}} {{this.auth_LN}}</p>
+{{#each subject}}
+<p> {{this.sbj_title}} {{this.subj_desc}}</p>
+{{/each}} {{author.auth_user_name}} {{/each}} --}}
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+
+        <!-- <div class='right'>
+        <a href="#" id="logo" class="left brand-logo"><img id="logo" src="buttfly.png" />Monarch</a>
+     </div> -->
+        <a href="#" id="logo" class="left brand-logo">
+          <img class="responsive-img hide-on-small-and-down" src="buttfly.png" /> Monarch </a>
+
+
+        <ul id="nav-mobile" class="right">
+          <li>
+
+            <button class="nav_button btn waves-effect waves-light modal-trigger blue accent-4" id="go_to_login" href="#login_modal"
+              name="login">Log In
+              <button class="nav_button btn waves-effect waves-light modal-trigger blue accent-4" id="go_to_register" href="#register_modal"
+                name="register">Register
+              </button>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="row">
+      <section id="list" class="col s12 m6">
+        <div class=" row">
+          <ul id="tabbys" class="tabs">
+            <li class="tab col s4">
+              <a id="new-post-tab" class="btn waves-effect waves-light modal-trigger white-text blue accent-4" href="#new_post_modal">New Post</a>
+            </li>
+            {{!--
+            <li class="tab col s4">
+              <a href="#">Top</a>
+            </li>
+            <li class="tab col s4">
+              <a href="#">Rand</a>
+            </li> --}}
+          </ul>
+        </div>
+        <div class="row" id="current_subject">
+
+          <ul id="posts-section" class="collapsible col s12">
+            {{#each posts}}
+            <!-- <div class="container"> -->
+            <!-- <h5>Current Topics:</h5> -->
+            <li>
+              <div class="collapsible-header">
+                {{this.post_title}}</div>
+              <div class="collapsible-body">
+                <span>
+                  {{this.post_body}}
+                </span>
+                <br>
+                <br>
+                <button class="btn-small waves-effect waves-light modal-trigger blue accent-4 post_new_comment" value={{this.id}} id="post_new_comment"
+                  name="new_comment">Post a Comment
+                </button>
+                <button class="btn-small waves-effect waves-light modal-trigger blue accent-4 go_to_comments" value={{this.id}} id="go_to_comments"
+                  name="comment">See Comments
+                </button>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </section>
+
+      <section id="topics" class="right col s3">
+        <div class="container">
+          <div class="row">
+            <h5>
+              Subjects:
+            </h5>
+            <ul class="collection z-depth-1">
+              <li>
+                <a href="/api/posts/1" class="collection-item col-item-subject black-text subject_selector" value=1>
+                  Gaming </a>
+              </li>
+              <li>
+                <a href="/api/posts/2" class="collection-item col-item-subject black-text subject_selector" value=2>
+                  Food </a>
+              </li>
+              <li>
+                <a href="/api/posts/3" class="collection-item col-item-subject black-text subject_selector" value=3>
+                  Music</a>
+              </li>
+              <li>
+                <a href="/api/posts/4" class="collection-item col-item-subject black-text subject_selector" value=4>
+                  Cars </a>
+              </li>
+              <li>
+                <a href="/api/posts/5" class="collection-item col-item-subject black-text subject_selector" value=5>
+                  Movies </a>
+              </li>
+              <li>
+                <a href="/api/posts/6" class="collection-item col-item-subject black-text subject_selector" value=6>
+                  Seeds</a>
+              </li>
+              <li>
+                <a href="/api/posts/7" class="collection-item col-item-subject black-text subject_selector" value=7>
+                  Film </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- Modal for logging in -->
+    <div id="login_modal" class="modal">
+      <div class="modal-content">
+        <form>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="username" id="user_name" type="text" class="validate">
+                <label for="user_name ">User Name</label>
+              </div>
+            </div>
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="********" id="user_password" type="password" class="validate">
+                <label for="user_password">Password</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="center col s12">
+              <button class="btn waves-effect waves-light blue accent-4" id="user_login_submit" type="submit " name="action ">Log In
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Modal for registering -->
+    <div id="register_modal" class="modal">
+      <div class="modal-content">
+        <form>
+
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="Johnny" id="new_user_first_name" type="text" class="validate" required>
+                <label for="first_name ">First name:</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="username" id="new_user_last_name" type="text" class="validate" required>
+                <label for="last_name ">Last name:</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="jane.doe@example.com" id="new_user_email" type="email" class="validate" required>
+                <label for="user_email">Email:</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="username" id="new_user_name" type="text" class="validate" required>
+                <label for="user_name ">Desired user name:</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="********" id="new_user_password" type="password" class="validate" required>
+                <label for="user_password">Desired password:</label>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="center col s12">
+          <button class="btn waves-effect waves-light blue accent-4" id="user_register_submit" type="submit" name="action">Register
+          </button>
+        </div>
+      </div>
+      </form>
+    </div>
+    </div>
+
+
+    <!-- Modal for posting -->
+    <div id="new_post_modal" class="modal">
+      <div class="modal-content">
+        <form id="new_post_form">
+
+          <div class="row">
+            <div class="container">
+
+              <div class="input-field col s12">
+                <select id="user_comment_topic">
+                  <option value="1">Gaming</option>
+                  <option value="2">Food</option>
+                  <option value="3">Music</option>
+                  <option value="4">Cars</option>
+                  <option value="5">Movies</option>
+                  <option value="6">Seeds</option>
+                  <option value="7">Film</option>
+                </select>
+                <label>Topic</label>
+              </div>
+            </div>
+
+          </div>
+          <br>
+          <br>
+          <br>
+
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="Title" id="new_post_title" type="text" class="validate">
+                <label for="new_post_title">Title</label>
+              </div>
+            </div>
+            <div class="container">
+              <div class="input-field col s6">
+                <textarea placeholder="Post" id="new_post_body" type="text" class="materialize-textarea validate"></textarea>
+                <label for="new_post_body">Post</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="center col s12">
+              <button class="btn waves-effect waves-light blue accent-4 modal-close" id="new_post__submit" type="submit " name="action ">Post
+              </button>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">y e e t</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Home</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Top</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Refresh</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Copyright a Dream Team Production
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {{!--
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+
+        <!-- <div class='right'>
+        <a href="#" id="logo" class="left brand-logo"><img id="logo" src="buttfly.png" />Monarch</a>
+     </div> -->
+        <a href="#" id="logo" class="left brand-logo">
+          <img class="responsive-img" src="buttfly.png" /> Monarch </a>
+
+
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+
+            <button class="nav_button btn waves-effect waves-light modal-trigger blue accent-4" id="go_to_login" href="#login_modal"
+              name="login">Log In
+              <button class="nav_button btn waves-effect waves-light modal-trigger blue accent-4" id="go_to_register" href="#register_modal"
+                name="register">Register
+              </button>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    {{#each post}}
+    <button value="{{this.post_title}}">{{this.post_title}}</button>
+    {{/each}}
+  </main>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Home</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Top</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Refresh</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Copyright a Dream Team Production
+      </div>
+    </div>
+  </footer> --}}

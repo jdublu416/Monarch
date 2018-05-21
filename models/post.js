@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Posts = sequelize.define("posts", {
-    post_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      auto_increment: true,
+      autoIncrement: true,
       primaryKey: true
     },
     post_title: {
@@ -24,13 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       defaultValue: 0
     },
-    subj_id:{
-      type: DataTypes.INTEGER
-    },
-    auth_id:{
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+    
   });
 
   return Posts;

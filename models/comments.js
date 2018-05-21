@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Comments = sequelize.define("comments", {
-    comm_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      auto_increment: true,
+      autoIncrement: true,
       primaryKey: true
     },
     comm_body: {
@@ -17,9 +17,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       defaultValue: 0
     },
-    post_id: {
-      type: DataTypes.INTEGER
-    },
+   
   });
 
   return Comments;

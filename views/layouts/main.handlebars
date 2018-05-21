@@ -1,13 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Monarch</title>
-    <link rel="stylesheet" href="/public/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+                {
+                    {
+                     !-- background-color: blueviolet;
+                    --
+                }
+            }
+        }
+
+        nav {
+            margin: 0 0 5em 0;
+            font-family: "Monoton";
+        }
+
+        #list {
+            max-width: 66%;
+
+        }
+
+        #tabbys {
+            padding: 0;
+            margin: 0;
+            height: 33px;
+        }
+
+        .row {
+            padding: 0;
+            margin: 0;
+        }
+
+        #posts-section {
+                {
+                    {
+                     !-- margin: 0;
+                    --
+                }
+            }
+                {
+                    {
+                     !-- padding: 0;
+                    --
+                }
+            }
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        #logo {
+            padding: 1px 10px 0px 5px;
+        }
+
+            {
+                {
+                 !-- h5 {
+                    font-family: "Monoton";
+                }
+                --
+            }
+        }
+
+        .nav_button {
+            margin: 5px;
+        }
+
+        .collapsible-body {
+                {
+                    {
+                     !-- padding: 10px;
+                    --
+                }
+            }
+        }
+
+
+        @media only screen and (max-width: 992px) {
+            body {
+                    {
+                        {
+                         !-- background-color: chartreuse;
+                        --
+                    }
+                }
+
+            }
+            #list {
+                max-width: 100%;
+
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                    {
+                        {
+                         !-- background-color: chocolate;
+                        --
+                    }
+                }
+            }
+        }
+    </style>
 </head>
+
 <body>
+
     {{{body}}}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>$(document).ready(() => {
+            $(".collapsible").collapsible();
+            $(".modal").modal();
+            $(".dropdown-trigger").dropdown();
+            $("select").formSelect();
+            $("input#input_text, textarea#post_title").characterCounter();
+            veryImportant(() => {
+                audio.play();
+            });
+            /*$(".col-item-subject").on("click", event => {
+                console.log(event.target);
+                if ($(event.target).hasClass("active")) {
+                    console.log("neat");
+                } else {
+                    console.log("adding class");
+                    $(".col-item-subject").removeClass("active");
+                    $(event.target).toggleClass("active");
+                }
+            });*/
+            M.textareaAutoResize($('#new_post_body'));
+            $("#new_post_form").on("submit", (event) => {
+                console.log("submitted");
+                let userTopic = $("#user_comment_topic").val();
+                console.log(userTopic);
+                const currentURL = window.location.origin;
+                const postData = {
+                    subjectId: userTopic,
+                    post_title: $("#new_post_title")
+                        .val()
+                        .trim(),
+                    post_body: $("#new_post_body")
+                        .val()
+                        .trim()
+                };
+                $.ajax({
+                    url: "/api/posts",
+                    method: "POST",
+                    data: postData
+                });
+                console.log("ajax");
+            });
+            $(".post_new_comment").on("click", (event) => {
+                console.log(event.target);
+                console.log($(event.target).val());
+                const postData = {
+                    id: $(event.target.val()),
+                }
+            });
+            $(".go_to_comments").on("click", (event) => {
+                console.log(event.target);
+                console.log($(event.target).val());
+            });
+            $(".subject_selector").click(event => {
+                console.log("clickydoo");
+                const id = $(event.target).attr("value");
+                if (isNaN(id)) {
+                    console.log("no number")
+                    return
+                } else {
+                    console.log("number");
+                    console.log(id);
+                    $.ajax({
+                        url: `/api/posts/${id}`,
+                        method: "GET"
+                    })
+                    console.log("ajax");
+                }
+            });
+
+        });
+
+        veryImportant = cb => {
+            let input = "";
+            const key = "38384040373937396665";
+            document.addEventListener("keydown", e => {
+                input += "" + e.keyCode;
+                if (input === key) {
+                    return cb();
+                }
+                if (!key.indexOf(input)) return;
+                input = "" + e.keyCode;
+            });
+        };
+
+        const audio = new Audio("secret.mp3");
+        let user = {
+            userName: "",
+            userPassword: ""
+        }
+
+        /*$('#user_login_submit').on("click", function () {
+
+            user.userName = $("#user_name").val();
+            user.userPassword = $("#user_password").val();
+            alert("logged in as" + " " + user.userName + " ...not really only testing");
+
+
+
+            { {  for testing porpoises} }
+            if (user.userName == "User" && user.userPassword == "Pass") {
+                $('#nav-mobile').addClass('hide');
+            }
+        })*/
+    </script>
 </body>
+
 </html>
