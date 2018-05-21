@@ -1,7 +1,6 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  
   //get for getting all posts
   app.get("/api/posts", function(req, res) {
     db.posts.findAll({}).then(function(dbposts) {
@@ -16,7 +15,7 @@ module.exports = function(app) {
         where: {
           subjectId: req.params.subjectId
         },
-        include:[db.Subject]
+        include: [db.Subject]
       })
       .then(function(posts) {
         return res.json(posts);
@@ -42,11 +41,11 @@ module.exports = function(app) {
     db.posts
       .findAll({
         where: {
-          Id: req.body.Id
+          subjectId: req.params.id
         }
       })
-      .then(function(dbposts) {
-        return res.json(dbposts);
+      .then(function(posts) {
+        res.render("index", { posts: posts });
       });
   });
 
@@ -55,11 +54,11 @@ module.exports = function(app) {
     console.log("POSTED");
     db.posts
       .create({
+        subjectId: req.body.subjectId,
         post_title: req.body.post_title,
         post_body: req.body.post_body,
-        post_vote: 0,
         authorId: 1,
-        subjectId: 1
+        post_vote: 0
       })
       .then(function(dbposts) {
         res.json(dbposts);
@@ -89,5 +88,4 @@ module.exports = function(app) {
         res.json(dbPost);
       });
   });
- 
 };

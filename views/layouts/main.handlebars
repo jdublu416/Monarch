@@ -145,10 +145,13 @@
                 }
             });*/
             M.textareaAutoResize($('#new_post_body'));
-            $("#new_post_form").on("submit", function (event) {
+            $("#new_post_form").on("submit", (event) => {
                 console.log("submitted");
+                let userTopic = $("#user_comment_topic").val();
+                console.log(userTopic);
                 const currentURL = window.location.origin;
                 const postData = {
+                    subjectId: userTopic,
                     post_title: $("#new_post_title")
                         .val()
                         .trim(),
@@ -174,7 +177,8 @@
                 console.log(event.target);
                 console.log($(event.target).val());
             });
-            $(".subject_selector").on("click", (event) => {
+            $(".subject_selector").click(event => {
+                console.log("clickydoo");
                 const id = $(event.target).attr("value");
                 if (isNaN(id)) {
                     console.log("no number")
@@ -182,22 +186,14 @@
                 } else {
                     console.log("number");
                     console.log(id);
-                    {{!-- const subjData = {
-                        id: id
-                    }; --}}
                     $.ajax({
                         url: `/api/posts/${id}`,
-                        method: "GET",
-                        {{!-- data: subjData --}}
-                        success: () => {
-                        var result = $(`<div />`).append().find('#current_subject').html();
-                        $("#current_subject").html(result);
-                        }
-                    });
+                        method: "GET"
+                    })
                     console.log("ajax");
-                    
                 }
             });
+
         });
 
         veryImportant = cb => {

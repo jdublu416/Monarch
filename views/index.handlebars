@@ -84,11 +84,35 @@
               Subjects:
             </h5>
             <ul class="collection z-depth-1">
-              {{#each subject}}
-              <a href="#" class="collection-item col-item-subject black-text subject_selector" value={{this.id}}>
-                {{this.subj_title}}
-                </li>
-                {{/each}}
+              <li>
+                <a href="/api/posts/1" class="collection-item col-item-subject black-text subject_selector" value=1>
+                  Gaming </a>
+              </li>
+              <li>
+                <a href="/api/posts/2" class="collection-item col-item-subject black-text subject_selector" value=2>
+                  Food </a>
+              </li>
+              <li>
+                <a href="/api/posts/3" class="collection-item col-item-subject black-text subject_selector" value=3>
+                  Music</a>
+              </li>
+              <li>
+                <a href="/api/posts/4" class="collection-item col-item-subject black-text subject_selector" value=4>
+                  Cars </a>
+              </li>
+              <li>
+                <a href="/api/posts/5" class="collection-item col-item-subject black-text subject_selector" value=5>
+                  Movies </a>
+              </li>
+              <li>
+                <a href="/api/posts/6" class="collection-item col-item-subject black-text subject_selector" value=6>
+                  Seeds</a>
+              </li>
+              <li>
+                <a href="/api/posts/7" class="collection-item col-item-subject black-text subject_selector" value=7>
+                  Film </a>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -128,10 +152,37 @@
     <div id="register_modal" class="modal">
       <div class="modal-content">
         <form>
+
           <div class="row">
             <div class="container">
               <div class="input-field col s6">
-                <input placeholder="username" id="new_user_name" type="text" class="validate">
+                <input placeholder="Johnny" id="new_user_first_name" type="text" class="validate" required>
+                <label for="first_name ">First name:</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="username" id="new_user_last_name" type="text" class="validate" required>
+                <label for="last_name ">Last name:</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="jane.doe@example.com" id="new_user_email" type="email" class="validate" required>
+                <label for="user_email">Email:</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="input-field col s6">
+                <input placeholder="username" id="new_user_name" type="text" class="validate" required>
                 <label for="user_name ">Desired user name:</label>
               </div>
             </div>
@@ -139,16 +190,8 @@
           <div class="row">
             <div class="container">
               <div class="input-field col s6">
-                <input placeholder="********" id="new_user_password" type="password" class="validate">
+                <input placeholder="********" id="new_user_password" type="password" class="validate" required>
                 <label for="user_password">Desired password:</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="container">
-              <div class="input-field col s6">
-                <input placeholder="jane.doe@example.com" id="new_user_email" type="email" class="validate">
-                <label for="user_email">Email:</label>
               </div>
             </div>
           </div>
@@ -168,6 +211,29 @@
     <div id="new_post_modal" class="modal">
       <div class="modal-content">
         <form id="new_post_form">
+
+          <div class="row">
+            <div class="container">
+
+              <div class="input-field col s12">
+                <select id="user_comment_topic">
+                  <option value="1">Gaming</option>
+                  <option value="2">Food</option>
+                  <option value="3">Music</option>
+                  <option value="4">Cars</option>
+                  <option value="5">Movies</option>
+                  <option value="6">Seeds</option>
+                  <option value="7">Film</option>
+                </select>
+                <label>Topic</label>
+              </div>
+            </div>
+
+          </div>
+          <br>
+          <br>
+          <br>
+
           <div class="row">
             <div class="container">
               <div class="input-field col s6">
@@ -188,6 +254,10 @@
               </button>
             </div>
           </div>
+          <br>
+          <br>
+          <br>
+
         </form>
       </div>
     </div>
@@ -198,7 +268,7 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
+          <h5 class="white-text">y e e t</h5>
           <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
         </div>
         <div class="col l4 offset-l2 s12">
