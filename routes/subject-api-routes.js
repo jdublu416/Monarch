@@ -4,7 +4,7 @@ var db = require("../models");
 var subject = db.subject;
 
 module.exports = function(app) {
-  app.get("/subjects", function(req, res) {
+  app.get("/", function(req, res) {
     return Promise.all([
       db.subject.findAll({}),
 
