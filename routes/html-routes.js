@@ -1,6 +1,9 @@
 var db = require("../models");
 
 module.exports = function(app){
+  // app.get("/", function(req, res){
+  //   db.findAll({}).then(function)
+  // })
     //renders the posts 
     app.get("/posts", function(req, res) {
         db.posts.findAll({}).then(function(post) {

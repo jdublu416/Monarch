@@ -59,8 +59,8 @@ VALUES
         "Games are for Weebs",
         "Losers, lolololol",
         0,
-        1,
-        1,
         CURRENT_TIMESTAMP(),
-        CURRENT_TIMESTAMP()
+        CURRENT_TIMESTAMP(),
+        1,
+        1
     );
